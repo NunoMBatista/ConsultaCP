@@ -1,3 +1,7 @@
+Dijkstra's algorithm finds the shortest path in a directed and weighted graph storing the value in a distance vector
+Complexity: $$O(E\log{V})$$
+
+```c++
 vvpii graph(1001);
 vi visited(1001, false);
 vi dist(1001, INT_MAX);
@@ -36,3 +40,4 @@ void solve(){
     cin >> s >> t;
     cout << dijkstra(s, t) << endl;
 }
+``` 
