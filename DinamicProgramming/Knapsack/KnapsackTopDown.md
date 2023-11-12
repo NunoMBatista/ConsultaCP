@@ -1,6 +1,6 @@
 Given $N$ objects with weights $w_i$ and values $v_i$, what is the max value you can carry in a sack with $W$ weight capacity?
 
-- In each sub problem, having the $i$ th object selected, there are two options:
+- In each sub-problem, having the $i$ th object selected, there are two options:
   - Put $i$ in the sack and solve the sub-problem for weight $W - w_i$ with the rest of the $i - 1$ objects.
   - Don't put $i$ in the bag and solve the sub-problem for weight $W$ with the rest of the $i - 1$ objects.
 
