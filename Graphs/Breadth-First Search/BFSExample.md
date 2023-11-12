@@ -63,7 +63,7 @@ int main(void){
 }
 ```
 
-> <font color="#00b050">STDIN:</font> [[Tree Input]]
+> <font color="#00b050">STDIN:</font>
 > 16
 > 1 2
 > 1 3 
