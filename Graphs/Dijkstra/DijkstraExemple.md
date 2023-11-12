@@ -1,5 +1,5 @@
-Dijkstra's algorithm finds the shortest path in a directed and weighted graph storing the value in a distance vector
-Complexity: $$O(E\log{V})$$
+Dijkstra's algorithm finds the shortest path in a directed and weighted graph storing the value in a distance vector.
+Complexity: $O(E\log{V})$
 
 ```c++
 vvpii graph(1001);
