@@ -1,4 +1,4 @@
-BFS searches a tree, starting from the root and exploring every node at the current depth before moving on to the next depth level by using a queue, hence, the name Breadth-First
+BFS searches a tree, starting from the root and exploring every node at the current depth before moving on to the next depth level by using a queue, hence, the name Breadth-First.
 Complexity: $0(|V| + |A|)$. 
 
 
