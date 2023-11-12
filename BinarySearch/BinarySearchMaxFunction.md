@@ -13,7 +13,7 @@ The algorithm starts by searching in the index $0+(9-0)/2 = 4$, $array[4] = 1 \i
 
 Next, it will search in the index $4+(9-4)/2 = 6$, $array[6] = 0 \implies rightBound$ is now $6$  
 
-Next, it will seatch in the index $4+(6-4)/2 = 5%, $array[5] = 0 \implies rightBound$ is now $5$  
+Next, it will seatch in the index $4+(6-4)/2 = 5$, $array[5] = 0 \implies rightBound$ is now $5$  
 
 This breaks the condition $rightBound > leftBound + 1$, so it returns $leftBound = 4$  
 
