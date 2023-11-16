@@ -8,7 +8,7 @@ $LIS[k] = 1 + \max \\{ LIS[i] \ | \ i < k \land A[i] < A[k] \\}$
 
 Extra: keep track of the previous indexes in an array $prevIndexTracker$:
 
-`prevIndexTracker[i]` is defined as the first index such that $S[idx] < S[i]$ by iterating from $k$ to $0$i.e.: `rforn(idx, k)`
+`prevIndexTracker[i]` is defined as the first index such that $S[idx] < S[i]$ by iterating from $k$ to $0$ i.e.: `rforn(idx, k)`
 
 
 ```c++
