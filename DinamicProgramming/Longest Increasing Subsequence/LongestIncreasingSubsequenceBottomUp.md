@@ -4,7 +4,7 @@ Extra: find the largest sequence itself, not just it's length.
 
 To do that, we can iterate through the length of $S$ **``[for(k = 0; k < N; k++)``** and compute the length of the LIS ending at index $k$ which is 1 more than the LIS ending at the largest LIS ending at index $i$ before $k$ as long as $S[i] < S[k]$:
 
-$LIS[k] = 1 + max\{LIS[i] \space| \space i < k \} \land A[i] < A[k]\}$
+$LIS[k] = 1 + max\{LIS[i] \space| \space i < k \land A[i] < A[k]\}$
 
 Extra: keep track of the previous indexes in an array $prevIndexTracker$:
 
