@@ -5,7 +5,7 @@ Structure the problem as a directed graph where the edges are connected between 
 
 The tallest stack with box $i$ at the base will be cached in $heights[i]$.
 
-When iterating through every box, a vector $S$ with every height of the boxes that can be stacked on top of box $i$, and the $heights$ vector will be updated acordingly: $heights[i] = heights[i] + \max\{i \space | \space i \in S\})$.
+When iterating through every box, a vector $S$ with every height of the boxes that can be stacked on top of box $i$, and the $heights$ vector will be updated acordingly: $heights[i] = heights[i] + \max\\{i \space | \space i \in S\\}$.
 
 ```c++
 bool compareLength(vll Box1, vll Box2){
