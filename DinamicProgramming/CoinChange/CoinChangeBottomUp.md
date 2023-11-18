@@ -14,7 +14,7 @@ ll min_coins(ll change, vll &coins){
     forsn(sub, 1, change){
         for(auto coin: coins){
             if(coin <= sub){
-                dp[cur] = min(dp[sub], dp[sub-coin] + 1);
+                dp[sub] = min(dp[sub], dp[sub-coin] + 1);
             }
         }
     }
