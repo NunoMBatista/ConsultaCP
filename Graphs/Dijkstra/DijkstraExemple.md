@@ -22,7 +22,7 @@ int dijkstra (int start, int target){
             for(auto v: graph[cur.se]){
                 if(dist[v.se] > dist[cur.se] + v.fi){ //v.fi is the distance between v and cur - v.se is the distance between start and v
                     dist[v.se] = dist[cur.se] + v.fi;
-                    PQ.push(v);
+                    PQ.push(mp(dist[v.se], v.se);
                 }
             }
         }
