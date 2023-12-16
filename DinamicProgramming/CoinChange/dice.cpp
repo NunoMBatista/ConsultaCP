@@ -1,3 +1,10 @@
+/*
+NUMBER OF WAYS TO SUM UP TO N USING THE NUMBERS FROM 1 TO 6
+*/
+
+
+
+
 #include <bits/stdc++.h> 
  
 using namespace std;
