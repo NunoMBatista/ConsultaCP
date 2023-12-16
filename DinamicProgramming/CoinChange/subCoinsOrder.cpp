@@ -1,3 +1,9 @@
+/*
+HOW MANY (ORDERED) WAYS TO SUM UP TO N WITH THE GIVEN COINS
+*/
+
+
+
 #include <bits/stdc++.h>
 
 using namespace std;
