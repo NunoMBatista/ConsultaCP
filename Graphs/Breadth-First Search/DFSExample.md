@@ -11,10 +11,10 @@ Evidently, the recursive call acts as a stack, so the stack itself does not need
   
 ```c++
 void DFS(vector<bool> &vis, vector<vector<ll>> &adj, int v){
-  vis[v] = true;
-  for(auto i : adj[v]){
-    if(vis[i] == false)
-      DFS(vis, adj, i);
-  } 
+    vis[v] = true;
+    for(auto i : adj[v]){
+      if(vis[i] == false)
+        DFS(vis, adj, i);
+    } 
 } 
 ```
