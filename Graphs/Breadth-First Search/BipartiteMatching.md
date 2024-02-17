@@ -1,6 +1,6 @@
-Verificar se um grafo é [[Bipartite Matching|bipartido]].
+Check if a given graph is bipartite.
 
-O objetivo é colorir cada vértice com $0$ e $1$, alternadamente, caso duas cores iguais estejam seguidas, sabe-se que o grafo não é bipartido.
+The core idea is to color each vertex with 0s and 1s alternately, If two adjacent vertices have the same color, the graph is not bipartite.
 
 ```c++
 vv graph(1001);
@@ -38,24 +38,24 @@ int main(){
     cin >> start;
 
     if (bipartite(start) == true)
-        cout << "Sim\n";
+        cout << "Yes\n";
     else
-        cout << "Não\n";
+        cout << "No\n";
   
     return 0;
 }
 ```
 
-> <font color="#00b050">STDIN:</font> [[Bipartite Graph Input]]
+> STDIN:
 > 7
 > 1 5
 > 2 5
 > 2 6
 > 3 6
 > 3 7
-> 4 5 
+> 4 5
 > 4 7
 > 1
 
-> <font color="#00b050">STDOUT:</font>
-> Sim
+> STDOUT:
+> Yes

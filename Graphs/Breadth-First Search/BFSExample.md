@@ -1,8 +1,8 @@
 BFS searches a tree, starting from the root and exploring every node at the current depth before moving on to the next depth level by using a queue, hence, the name Breadth-First.
-Complexity: $0(|V| + |A|)$. 
-
+Complexity: $O(|V| + |A|)$.
 
 ### Pseudo-Code
+
 ```
  1  procedure BFS(G, root) is
  2      let Q be a queue
@@ -19,8 +19,8 @@ Complexity: $0(|V| + |A|)$.
 13                  Q.enqueue(w)
 ```
 
-
 ## C++
+
 ```c++
 vector<bool> visited(1001, false);
 vv graph(1001);
@@ -63,26 +63,26 @@ int main(void){
 }
 ```
 
-> <font color="#00b050">STDIN:</font>
+> `<font color="#00b050">`STDIN:`</font>`
 > 16
 > 1 2
-> 1 3 
+> 1 3
 > 1 4
 > 2 5
-> 2 6 
+> 2 6
 > 3 7
 > 4 8
-> 5 9 
+> 5 9
 > 5 10
 > 6 11
-> 6 12 
-> 6 13 
-> 7 14 
-> 7 15 
+> 6 12
+> 6 13
+> 7 14
+> 7 15
 > 8 16
 > 8 17
 
-><font color="#00b050"> STDOUT: </font>
+> `<font color="#00b050">` STDOUT: `</font>`
 > Visiting root
 > Visiting node 1
 > Visiting node 2
@@ -101,4 +101,3 @@ int main(void){
 > Visiting node 15
 > Visiting node 16
 > Visiting node 17
-
