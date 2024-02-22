@@ -39,7 +39,7 @@ $dp[sub]$ caches the ammount of ways to form $sub$.
 
 $dp[0]  = 1$ is the base case (there's only $1$ way to get the change $0$).
 
-Iterating through every sub from $1$ to $change$, we test every coin that fits in $sub$ and update $dp$ accordingly: $dp[sub] = dp[sub] + sp[sub-coin]$.
+Iterating through every sub from $1$ to $change$, we test every coin that fits in $sub$ and update $dp$ accordingly: $dp[sub] = dp[sub] + dp[sub-coin]$.
 
 ```c++
 ll min_coins(ll change, vll &coins){
