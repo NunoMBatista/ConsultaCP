@@ -81,8 +81,7 @@ void solve(){
 
 **HOW MANY WAYS (without order)**
 
-Same as the with order version, but the outer loop iterates through the coins and the inner loop iterates through the $sub$ values.
-
+Same as the with order version but the outer loop iterates through the coins and the inner loop iterates through the $sub$ values.
 
 ```c++
 
