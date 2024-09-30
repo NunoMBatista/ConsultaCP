@@ -1,0 +1,54 @@
+{
+	"name":"Consulta",
+	"author":"jncoelho",
+	"engines":{
+			"vscode":"^1.11.0"
+	},
+	"contributes":{
+			"snippets":[
+			{
+					"language":"cpp",
+					"path":"./dp.json"
+			},
+			{
+					"language":"cpp",
+					"path":"./estruturas.json"
+			},
+									
+			{
+					"language":"cpp",
+					"path":"./geometrico.json"
+			},
+								
+			{
+					"language":"cpp",
+					"path":"./grafos.json"
+			},
+										
+			{
+					"language":"cpp",
+					"path":"./inicial.json"
+			},
+										
+			{
+					"language":"cpp",
+					"path":"./matematico.json"
+			},
+										
+			{
+					"language":"cpp",
+					"path":"./primos.json"
+			},
+									
+			{
+					"language":"cpp",
+					"path":"./semCategoria.json"
+			},
+										
+			{
+					"language":"cpp",
+					"path":"./strings.json"
+			}
+		]
+	}
+}

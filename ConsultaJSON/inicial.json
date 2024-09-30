@@ -1,0 +1,102 @@
+{
+"Comp temp": {
+		"prefix": "basic",
+		"body": [
+			"#include <bits/stdc++.h>",
+			"using namespace std;\n",
+			"typedef long long ll;",
+			"typedef long double ld;",
+			"typedef pair<int,int> pii;",
+			"typedef pair<ll,ll> pll;",
+			"typedef pair<double,double> pdd;",
+			"typedef vector<ll> vll;",
+			"typedef vector<int> vi;",
+			"typedef vector<bool> vb;",
+			"typedef vector<vector<int> > vv;",
+			"typedef vector<vector<ll> > vvll;",
+			"typedef vector<vector<pii> > vvpii;",
+			"typedef vector<pll> vpll;",
+			"typedef vector<pii> vpii;",
+			"ll MOD = 1e9+7;",
+			"double eps = 1e-12;",
+			"const int di[] = {1, 0, -1, 0};",
+			"const int dj[] = {0, -1, 0, 1};",
+			"#define forn(i,e) for(ll i = 0; i < e; i++)",
+			"#define forsn(i,s,e) for(ll i = s; i < e; i++)",
+			"#define rforn(i,s) for(ll i = s; i >= 0; i--)",
+			"#define rforsn(i,s,e) for(ll i = s; i >= e; i--)",
+			"#define ln  \"\\n\" ",
+			"#define mp make_pair",
+			"#define pb push_back",
+			"#define fi first",
+			"#define se second",
+			"#define INF 2e9",
+			"#define all(x) (x).begin(), (x).end()",
+			"#define sz(x) ((ll)(x).size())",
+			"#define cut(str, s, e) (string(str.begin() + s, str.end() + e))",
+			"#define pqTopMaior(t) priority_queue<t, vector<t>, less<t>>",
+			"#define pqTopMenor(t) priority_queue<t, vector<t>, greater<t>>",
+			"inline int mod(int a, int m) {return ((a%m) + m)%m;}",
+			"",
+			"int main() {",
+			"\tios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);",
+			"\t//cout<<fixed<<setprecision();",
+			"\t//cin>>getline(cin, string);",
+			"\tll t;",
+			"\tcin>>t;",
+			"\tfor(ll i = 0; i < t; i++){",
+			"\t\tsolve();",
+			"\t}",
+			"\treturn 0;",
+			"}"
+		],
+		"description": "Template para competições"
+	},
+	"For j": {
+		"prefix": "fjj",
+		"body": ["for (int j = 0; j < n; j++)"],
+		"description": "Ciclo for para j"
+	},
+
+	"For k": {
+		"prefix": "fkk",
+		"body": ["for (int k = 0; k < n; k++)"],
+		"description": "Ciclo for para k"
+	},
+
+	"For i":{
+		"prefix":"fii",
+		"body": ["for (int i = 0; i < n; i++)"],
+		"description":"Ciclo for para i"
+	},
+	"For i reverse":{
+		"prefix":"fir",
+		"body":["for (int i = n-1; i >= 0; i--)"],
+		"description":"Ciclo reverso para i"
+	},
+	"For j reverse":{
+		"prefix":"fjr",
+		"body":["for (int j = n-1; j >= 0; j--)"],
+		"description":"Ciclo reverso para j"
+	},
+	"For k reverse":{
+		"prefix":"fkr",
+		"body":["for (int k = n-1; k >= 0; k--)"],
+		"description":"Ciclo reverso para k"
+	},
+	"For i long":{
+		"prefix":"fil",
+		"body":["for (ll i = 0; i < n; i++)"],
+		"description":"Ciclo i em long long int"
+	},
+	"For j long":{
+		"prefix":"fjl",
+		"body":["for (ll j = 0; j < n; j++)"],
+		"description":"Ciclo j em long long int"
+	},
+	"For k long":{
+		"prefix":"fkl",
+		"body":["for (ll k = 0; k < n; k++)"],
+		"description":"Ciclo k em long long int"
+	}
+}
