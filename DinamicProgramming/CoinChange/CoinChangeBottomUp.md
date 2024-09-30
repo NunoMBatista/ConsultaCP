@@ -42,21 +42,7 @@ $dp[0]  = 1$ is the base case (there's only $1$ way to get the change $0$).
 Iterating through every sub from $1$ to $change$, we test every coin that fits in $sub$ and update $dp$ accordingly: $dp[sub] = dp[sub] + dp[sub-coin]$.
 
 ```c++
-
-ll coin_combs(ll change, vt<ll> &coins){
-    vt<ll> dp(change + 1);
-    dp[0] = 1;
-
-    for(auto coin: coins){
-        for(int sub = 1; sub <= change; sub++){
-            if(coin <= sub){
-                dp[sub] = dp[sub] + dp[sub-coin];
-            }
-        }
-    }
-
-    return dp[change];
-}ll coin_combs(ll change, vll &coins){
+ll coin_combs(ll change, vll &coins){
     vll dp(change + 1, 0); 
     dp[0] = 1; 
 
@@ -86,7 +72,7 @@ Same as the with order version but the outer loop iterates through the coins and
 ```c++
 
 ll coin_combs(ll change, vt<ll> &coins){
-    vt<ll> dp(change + 1);
+    vt<ll> dp(change + 1, 0);
     dp[0] = 1;
 
     for(auto coin: coins){
