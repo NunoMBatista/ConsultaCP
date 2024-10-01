@@ -119,5 +119,38 @@
 						"}"
 			],
 		"description":"knapsack solution with linear memory"
+	},
+	"BoxStacking":{
+		"prefix":"BoxStacking",
+		"body":["bool compareLength(vll Box1, vll Box2){",
+						"\treturn Box1[0] < Box2[0];",
+						"}\n",
+						"bool canBeStacked(ll wTop, ll lTop, ll wBottom, ll lBottom){",
+						"\treturn wTop < wBottom && lTop < lBottom;",
+						"}\n",
+						"ll tallestStack (vvll boxes, ll n){",
+						"\tsort(all(boxes), compareLength); // sort all boxes by length ",
+						"\tmap<vll, ll> heights; // memoize the tallest stack with box n at the base",
+						"\tfor(auto box: boxes){",
+						"\t\theights[box] = box[2];",
+						"\t}\n",
+						"\tfor(auto box_i: boxes){",
+						"\t\tvll S; // vector of heights of stacks starting at boxes that can be stacked on top of box_i",
+						"\t\tfor(auto j: boxes){",
+						"\t\t\tif(canBeStacked(j[1], j[0], box_i[1], box_i[0]))",
+						"\t\t\t\tS.pub(heights[j]);",
+						"\t\t}",
+						"\t\tif(!S.empty())",
+						"\t\t\theights[box_i] = heights[box_i] + (*max_element(all(S)));",
+						"\t}\n",
+						"\tll maxHeight = 0; ",
+						"\tfor(auto i: heights){",
+						"\t\tif(i.second > maxHeight)",
+						"\t\t\tmaxHeight = i.second;",
+						"\t}",
+						"\treturn maxHeight;",
+						"}"
+			],
+		"description":"Dadas caixas (tamanho e peso), quantas caixas podem estar em cima umas das outras (L_top < L_bottom && W_top < W_bottom)"
 	}
 }
