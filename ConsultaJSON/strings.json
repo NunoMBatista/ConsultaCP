@@ -97,7 +97,6 @@
 		],
 		"description":"Find where (start) keys are in a text"
 	},
-
 	"Knuth-Morris-Pratt":{
 		"prefix":"KMP",
 		"body":["string T, P;                    // T = text, P = pattern",

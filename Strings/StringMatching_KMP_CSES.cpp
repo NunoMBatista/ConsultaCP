@@ -59,7 +59,7 @@ void solve(){
     cin>>P;
     n = (int) T.size();
     m = (int) P.size();
-    vi b(n);                // b = back table
+    vi b(m+1);                // b = back table
     kmpPreprocess(b);
     kmpSearch(b);
 }

@@ -56,11 +56,11 @@
 	},
 	"DFS":{
 		"prefix": "DFS",
-		"body":["void dfs (int v, vector<bool> &visited, vv &graph){",
+		"body":["void dfs (int v, vector<bool> &visited, vv &adjMat){",
 			"\tvisited[v] = true;",
-			"\tfor(int no: graph[v]){",
+			"\tfor(int no: adjMat[v]){",
 			"\t\tif (!visited[no]){",
-			"\t\t\tdfs(no, visited, graph);",
+			"\t\t\tdfs(no, visited, adjMat);",
 			"\t\t}",
 			"\t}",
 			"\treturn;",
@@ -140,7 +140,7 @@
 		],
 		"description": "Breath-First Search"
 	},
-	"MaxFlowMinCutT":{
+	"MaxFlowMinCut":{
 			"prefix":["MaxFlowMinCutT", "EdmondsKarpT"],
 			"body":["template<class T> void dfs(int s, vector<unordered_map<int, T>> &graph, vv &adjacency, vb &visited){",
 							"\tvisited[s] = true;",

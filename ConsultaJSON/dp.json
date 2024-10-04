@@ -30,7 +30,7 @@
 	},
 	"Coin_Perm":{
 		"prefix": "CoinChangePerm",
-		"body":["ll coin_combs(ll change, vll &coins){",
+		"body":["ll coin_perm(ll change, vll &coins){",
 						"\tvll dp(change + 1, 0); ",
 						"\tdp[0] = 1;\n",
 						"\tforsn(sub, 1, change + 1){",
