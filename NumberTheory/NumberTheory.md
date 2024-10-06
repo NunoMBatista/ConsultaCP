@@ -71,7 +71,7 @@ vll Catalan(int n, ll m){                  //n inclusive
 	vll cat(n+1);
 	cat[0] = 1;
 	for (int i = 0; i < n; i++){
-		cat[i+1] = mod(mod(mod((4*i)+2,m) * mod(cat[i],m)) * modInverse(i+2, m),);
+		cat[i+1] = mod(mod(mod((4*i)+2,m) * mod(cat[i],m), m) * modInverse(i+2, m),m);
 	}
 	return cat;
 }

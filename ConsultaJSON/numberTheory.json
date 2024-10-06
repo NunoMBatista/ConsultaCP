@@ -171,7 +171,7 @@
 			"\tvll cat(n+1);",
 			"\tcat[0] = 1;",
 			"\tfor (int i = 0; i < n; i++){",
-			"\t\tcat[i+1] = mod(mod(mod((4*i)+2,m) * mod(cat[i],m)) * modInverse(i+2, m),);",
+			"\t\tcat[i+1] = mod(mod(mod((4*i)+2,m) * mod(cat[i],m), m) * modInverse(i+2, m),m);",
 			"\t}",
 			"\treturn cat;",
 			"}\n",
