@@ -128,7 +128,7 @@
 			"\treturn a;",
 			"}\n",
 			"int modInverse(int A, int M){          //Para combinações/fatoriais, escrever comb ou fatoriais",
-			"\tint x, y",
+			"\tint x, y;",
 			"\tint d = extEuclidean(A, M, x, y);",
 			"\tif (d != 1) return -1;",
 			"\treturn mod(x, M);",

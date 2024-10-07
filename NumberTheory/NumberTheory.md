@@ -25,7 +25,7 @@ int extEuclidean(int a, int b, int &x, int &y){
 }
 
 int modInverse(int A, int M){          //Para combinações/fatoriais, escrever comb ou fatoriais
-	int x, y
+	int x, y;
 	int d = extEuclidean(A, M, x, y);
 	if (d != 1) return -1;
 	return mod(x, M);
