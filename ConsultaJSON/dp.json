@@ -65,7 +65,8 @@
 	},
 	"Min_Coins":{
 		"prefix":"MinCoins",
-		"body":["ll min_coins(ll change, vll &coins){",
+		"body":["//Retorna INF caso seja impossivel",
+						"ll min_coins(ll change, vll &coins){",
 						"\tvll dp(change + 1, INF); ",
 						"\tdp[0] = 0;\n",
 						"\tforsn(sub, 1, change + 1){",

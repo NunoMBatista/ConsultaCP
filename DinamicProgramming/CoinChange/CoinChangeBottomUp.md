@@ -9,6 +9,7 @@ $dp[0]  = 0$ is the base case (we need 0 coins to get the change 0).
 Iterating through every sub from $1$ to $change$, we test every coin that fits in $sub$ and update $dp$ accordingly: $dp[sub] = \min \\{ dp[sub], \space dp[sub-coin] + 1 \\}$
 
 ```c++
+//Retorna INF caso seja impossível
 ll min_coins(ll change, vll &coins){
     vll dp(change + 1, INF); 
     dp[0] = 0; 
