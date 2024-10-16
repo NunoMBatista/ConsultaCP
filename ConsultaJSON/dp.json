@@ -107,11 +107,11 @@
 	"Knapsack":{
 		"prefix":"knapsack",
 		"body":[
-						"int knapsack(int W, int n, vi price, vi weight){        //linear memory",
+						"int knapsack(int W, int n, vi &price, vi &weight){        //linear memory",
 						"\tvi aux(W+1, 0);",
 						"\tfor (int i = 0; i < n; i++){",
-						"\t\tfor (int j = 1; j <= W; j++){",
-						"\t\t\tif (weight[i] <= aux[j]){",
+						"\t\tfor (int j = W; j > 0; j--){",
+						"\t\t\tif (weight[i] <= j){",
 						"\t\t\t\taux[j] = max(aux[j - weight[i]] + price[i], aux[j]);",
 						"\t\t\t}",
 						"\t\t}",
