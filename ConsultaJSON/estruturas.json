@@ -29,6 +29,28 @@
 		],
 		"description":"Set de valores organizador numa árvore. Só procurar valores existentes"
 	},
+	"Disjoint Set Union": {
+		"prefix": "DSU",
+		"body":["//Cada valor começa por ser o seu proprio set",
+			"void makeSet(int v, vi &parent) {",
+			"\tparent[v] = v;",
+			"}",
+			"int findSet(int v, vi &parent) {",
+			"\tif (v != parent[v])",
+			"\tparent[v] = findSet(parent[v], parent);",
+			"\treturn parent[v];",
+			"}",
+			"void unionSets(int u, int v, vi &parent) {",
+			"\tint root1 = findSet(u, parent);",
+			"\tint root2 = findSet(v, parent);",
+			"\tparent[root2] = root1;",
+			"}",
+			"bool check(int u, int v, vi &parent) {",
+			"\treturn findSet(u, parent) == findSet(v, parent);",
+			"}"
+		],
+		"description":"Disjoint Set Union: juntar árvores (quando só importa em que árvore está o vértice e não a ligação a que vértice)"
+	},
 	"Trie":{
 		"prefix": "trie",
 		"body": [
