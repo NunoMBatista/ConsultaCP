@@ -3,7 +3,7 @@ Complexidade: O(n!)
 ```c++
 //l = 0, r = n-1
 void permute(vector<int> &a, int l, int r){
-	if (l == r){
+	if (l >= r){
 		//verificar permutação, guardá-la leva a MLE
 		verifica();
 	}
