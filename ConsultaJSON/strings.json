@@ -146,5 +146,26 @@
 						"}"
 		],
 		"description":"tamanho da maior subsequecia comum as duas palavras (nao necessariamente continua)"
+	},
+	"Edit Distance":{
+		"prefix":["EditDistance", "StringAlignment"],
+		"body":["int EditDistance(string a, string b, int tamA, int tamB){",
+						"\tvv bu(tamA + 1, vi(tamB + 1, 0));",
+						"\tfor (int i = 0; i <= tamA; i++){",
+						"\t\tbu[i][0] = i;",
+						"\t}",
+						"\tfor (int i = 0; i <= tamB; i++){",
+						"\t\tbu[0][i] = i;",
+						"\t}",
+						"\tfor (int i = 1; i <= tamA; i++){",
+						"\t\tfor (int j = 1; j <= tamB; j++){",
+						"\t\t\tif (a[i-1] == b[j-1]) bu[i][j] = min(min(bu[i-1][j-1], bu[i-1][j] + 1), bu[i][j-1] + 1);",
+						"\t\t\telse bu[i][j] = min(min(bu[i-1][j] + 1, bu[i][j-1] + 1), bu[i-1][j-1] + 1);",
+						"\t\t}",
+						"\t}",
+						"\treturn bu[tamA][tamB];",
+						"}"
+		],
+		"description":"Editar 2 strings para que fiquei iguais. Este exemplo é o número mínimo de operações para que isso aconteça"
 	}
 }
