@@ -135,7 +135,7 @@
 	"Longest Common Subsequence":{
 		"prefix":"LCS",
 		"body":["int LCS(string a, string b, int tamA, int tamB){",
-						"\tvv bu(tamA + 2, vi(tamB, 0));",
+						"\tvv bu(tamA + 1, vi(tamB + 1, 0));",
 						"\tfor (int i = 1; i <= tamA; i++){",
 						"\t\tfor (int j = 1; j <= tamB; j++){",
 						"\t\t\tif (a[i-1] == b[j-1]) bu[i][j] = bu[i-1][j-1] + 1;",
