@@ -143,7 +143,7 @@
 		"prefix":"permutacoes",
 		"body":["//l = 0, r = n-1",
 						"void permute(vector<int> &a, int l, int r){",
-						"\tif (l == r){",
+						"\tif (l >= r){",
 						"\t\t//verificar permutação, guardá-la leva a MLE",
 						"\t\tverifica();",
 						"\t}",

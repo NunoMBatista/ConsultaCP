@@ -32,28 +32,6 @@
 		],
 		"description": "Algoritmo de Dijkstra"
 	},
-	"Disjoint Set Union": {
-		"prefix": "DSU",
-		"body":["//Cada valor começa por ser o seu proprio set",
-			"void makeSet(int v, vi &parent) {",
-			"\tparent[v] = v;",
-			"}",
-			"int findSet(int v, vi &parent) {",
-			"\tif (v != parent[v])",
-			"\tparent[v] = findSet(parent[v], parent);",
-			"\treturn parent[v];",
-			"}",
-			"void unionSets(int u, int v, vi &parent) {",
-			"\tint root1 = findSet(u, parent);",
-			"\tint root2 = findSet(v, parent);",
-			"\tparent[root2] = root1;",
-			"}",
-			"bool check(int u, int v, vi &parent) {",
-			"\treturn findSet(u, parent) == findSet(v, parent);",
-			"}"
-		],
-		"description":"Disjoint Set Union: juntar árvores (quando só importa em que árvore está o vértice e não a ligação a que vértice)"
-	},
 	"DFS":{
 		"prefix": "DFS",
 		"body":["void dfs (int v, vector<bool> &visited, vv &adjMat){",
@@ -474,5 +452,43 @@
 						"}"
 		],
 		"description":"Encontra o vertice mais próximo acima dos 2 vértices selecionados"
+	},
+	"KruskalMST":{
+		"prefix":["Kruskal", "MST"],
+		"body":["//Cada valor começa por ser o seu proprio set",
+						"void makeSet(int v, vi &parent) {",
+						"\tparent[v] = v;",
+						"}",
+						"int findSet(int v, vi &parent) {",
+						"\tif (v != parent[v]) parent[v] = findSet(parent[v], parent);",
+						"\treturn parent[v];",
+						"}",
+						"void unionSets(int u, int v, vi &parent) {",
+						"\tint root1 = findSet(u, parent);",
+						"\tint root2 = findSet(v, parent);",
+						"\tparent[root2] = root1;",
+						"}",
+						"bool check(int u, int v, vi &parent) {",
+						"\treturn findSet(u, parent) == findSet(v, parent);",
+						"}",
+						"",
+						"template<class T> T KruskalMST(vector<tuple<T, int, int>> edges, int V){",
+						"\tsort(all(edges));",
+						"\tvi parent(V);",
+						"\tfor (int i = 0; i < V; i++){",
+						"\t\tmakeSet(i, parent);",
+						"\t}",
+						"\tT mst_cost = 0, num_taken = 0;",
+						"\tfor (auto &[w, u, v]: edges){",
+						"\t\tif (check(u, v, parent)) continue;",
+						"\t\tmst_cost += w;",
+						"\t\tunionSets(u, v, parent);",
+						"\t\t++num_taken;",
+						"\t\tif (num_taken == V-1) break;",
+						"\t}",
+						"\treturn mst_cost;",
+						"}"
+		],
+		"description":"Algoritmo que calcula a Minimum Spanning Tree. MST é a menor arvore de um grafo que conecta todos os seus vertices"
 	}
 }
