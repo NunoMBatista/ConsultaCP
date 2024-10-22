@@ -369,7 +369,7 @@ struct array_trie {
     }
 };
 
-#define op(l, r) l + r		//operação da segment tree
+#define op(l, r) l + r		//operacao da segment tree
 const ll inf = 1e9;
 struct Node {
     Node *l = 0, *r = 0;
@@ -558,7 +558,7 @@ vector<int> dijkstra(vector<vector<pii>>& graph, int source, int target) {
 	return dist;
 }
 
-//Cada valor começa por ser o seu proprio set
+// Cada valor comeca por ser o seu proprio set
 void makeSet(int v, vi &parent) {
 	parent[v] = v;
 }
@@ -835,11 +835,11 @@ void FW(vi &matrix){
 
 //Matematico
 
-int f(int x){               //Avançar na expressão onde estamos a encontrar ciclo
+int f(int x){               //Avancar na expressao onde estamos a encontrar ciclo
 	return (26*x + 11)%80;
 }
 
-pii floydCicleFinding(int x){             //Index (x) onde começa a sequencia (arr)
+pii floydCicleFinding(int x){             //Index (x) onde comeca a sequencia (arr)
 	int t = f(x), h = f(f(x));
 	while (t != h){
 		t = f(t);
@@ -873,7 +873,7 @@ int modPow(int b, int p, int m){
 	return ans;
 }
 
-vvll matMul(vvll &a, vvll &b, int MOD){              //Duas matrizes não nulas, i -> linhas, j -> colunas
+vvll matMul(vvll &a, vvll &b, int MOD){              //Duas matrizes nao nulas, i -> linhas, j -> colunas
 	int lin = a.size();
 	int col = b[0].size();
 	vvll ans(lin, vll(col, 0));
@@ -911,7 +911,7 @@ vvll matPow(vvll base, int p, int MOD){          //So matrizes quadradas
 #define MAX_N 100  //adjust this value as needed
 struct AugmentedMatrix{ double mat[MAX_N][MAX_N + 1];};
 struct ColumnVector{ double vec[MAX_N];};
-ColumnVector GaussianElimination(int N, AugmentedMatrix Aug){    //O(n³)
+ColumnVector GaussianElimination(int N, AugmentedMatrix Aug){    //O(n^3)
 	//input: N, Augmented Matriz aug; output: Column Vector x, the answer
 	for (int i = 0; i < N-1; i++){							//forward elimination
 		int l = i;
@@ -1014,7 +1014,7 @@ ll sieve_size;
 bitset<10000010> bs;
 vll p;
 
-void gerador(ll upperbound){                //Não maior de 10^7
+void gerador(ll upperbound){                //Nao maior de 10^7
 	sieve_size = upperbound+1;
 	bs.set();
 	bs[0] = bs[1] = 0;
@@ -1037,7 +1037,7 @@ bool isPrime(ll N){
 //Por no solve
 gerador(10000000);
 
-vll primeFactor(ll N){      //Fatorizar em numeros primos, não esquecer de gerar numeros primos
+vll primeFactor(ll N){      //Fatorizar em numeros primos, nao esquecer de gerar numeros primos
 	vll factors;
 	for (int i = 0; (i < (int) p.size()) && (p[i]*p[i] <= N); i++){
 		while (N%p[i] == 0){
@@ -1055,7 +1055,7 @@ int numFatPrimos(ll N){     //Quantos fatores primos tem um numero
 		while (N%p[i] == 0) {
 			N/=p[i];
 			ans++;
-		}
+		}>
 	}
 	return ans + (N != 1);
 }
@@ -1073,7 +1073,7 @@ int numDivisores(ll N){          //Multiplicatorio de (n+1), sendo 'n' o numero 
 	return (N != 1) ? 2*ans : ans;
 }
 
-ll sumDivisores(ll N){          //Multiplicatório de (a^(n+1) - 1)/(a-1), sendo 'a' cada fator primo e 'n' o número de vezes que 'a' se repete
+ll sumDivisores(ll N){          //Produtorio de (a^(n+1) - 1)/(a-1), sendo 'a' cada fator primo e 'n' o numero de vezes que 'a' se repete
 	ll ans = 1;
 	for (int i = 0; (i < (int) p.size()) && (p[i]*p[i] <= N); i++){
 		ll multiplier = p[i], total = 1;
@@ -1141,7 +1141,7 @@ int extEuclidean(int a, int b, int &x, int &y){
 	return a;
 }
 
-int modInverse(int A, int M){          //Para combinações/fatoriais, escrever comb ou fatoriais
+int modInverse(int A, int M){          //Para combinacoes/fatoriais, escrever comb ou fatoriais
 	int x, y
 	int d = extEuclidean(A, M, x, y);
 	if (d != 1) return -1;
@@ -1170,7 +1170,7 @@ pii diophantine(int a, int b, int sol){         //a*x + b*y = sol
 	}else{
 		limsup = min(limsup, abs(y/a));
 	}
-	if (liminf > limsup) return mp(-1, -1);         //Só devolve uma solução para a equação, mas há um limite (finito ou infinito de soluções)
+	if (liminf > limsup) return mp(-1, -1);         //So devolve uma solucao para a equacao, mas ha um limite (finito ou infinito de solucoes)
 	else return mp(x + b*liminf, y + a*liminf);
 }
 
