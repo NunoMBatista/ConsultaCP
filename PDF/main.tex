@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{listings}
 
+
 % Adjust the font size for the document
 \renewcommand{\normalsize}{\footnotesize}
 
@@ -262,7 +263,70 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Knapsack}
+\huge\textbf{Knapsack (Top-Down)}
+\large
+\begin{lstlisting}
+// Returns the value of maximum profit
+int knapSackRec(int W, int wt[], int val[], int index, int** dp)
+{
+	// base condition
+	if (index < 0)
+		return 0;
+	if (dp[index][W] != -1)
+		return dp[index][W];
+
+	if (wt[index] > W) {
+
+		// Store the value of function call
+		// stack in table before return
+		dp[index][W] = knapSackRec(W, wt, val, index - 1, dp);
+		return dp[index][W];
+	}
+	else {
+		// Store value in a table before return
+		dp[index][W] = max(val[index]
+							+ knapSackRec(W - wt[index], wt, val,
+											index - 1, dp),
+						knapSackRec(W, wt, val, index - 1, dp));
+
+		// Return value of table after storing
+		return dp[index][W];
+	}
+}
+
+int knapSack(int W, int wt[], int val[], int n)
+{
+	// double pointer to declare the
+	// table dynamically
+	int** dp;
+	dp = new int*[n];
+
+	// loop to create the table dynamically
+	for (int i = 0; i < n; i++)
+		dp[i] = new int[W + 1];
+
+	// loop to initially filled the
+	// table with -1
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < W + 1; j++)
+			dp[i][j] = -1;
+	return knapSackRec(W, wt, val, n - 1, dp);
+}
+
+// Driver Code
+int main()
+{
+	int profit[] = { 60, 100, 120 };
+	int weight[] = { 10, 20, 30 };
+	int W = 50;
+	int n = sizeof(profit) / sizeof(profit[0]);
+	cout << knapSack(W, weight, profit, n);
+	return 0;
+}
+\end{lstlisting}
+
+\large
+\huge\textbf{Knapsack (Bottom-Up)}
 \large
 \begin{lstlisting}
 int knapsack(int W, int n, vi &price, vi &weight){        //linear memory
@@ -1632,34 +1696,6 @@ void buildRMQ(int n, vv &adjMatrix, int m){
 \large
 
 \large
-\huge\textbf{Binary Search}
-\large
-\begin{lstlisting}
-bool F(ll target){
-    return true or false;
-}
-
-ll bestXforF (){
-    ll leftBound = 0, rightBound = 1, mid;
-    
-    while(F(rightBound) == false)
-        rightBound *= 2;
-
-    while(rightBound > leftBound + 1){
-        mid = leftBound + (rightBound - leftBound)/2;
-        if(F(mid) == true)
-            rightBound = mid;
-        else    
-            leftBound = mid;
-    }
-
-    return leftBound;
-}
-\end{lstlisting}
-
-
-
-\large
 \huge\textbf{Cicle Finding}
 \large
 \begin{lstlisting}
@@ -2433,6 +2469,59 @@ int LCS(string a, string b, int tamA, int tamB){
 	}
 	return bu[tamA][tamB];
 }	
+\end{lstlisting}
+
+\large
+\begin{center}
+\huge\textbf{--- MISCELLANEOUS ---}
+\end{center}
+\large
+
+\large
+\huge\textbf{Binary Search}
+\large
+\begin{lstlisting}
+bool F(ll target){
+    return true or false;
+}
+
+ll bestXforF (){
+    ll leftBound = 0, rightBound = 1, mid;
+    
+    while(F(rightBound) == false)
+        rightBound *= 2;
+
+    while(rightBound > leftBound + 1){
+        mid = leftBound + (rightBound - leftBound)/2;
+        if(F(mid) == true)
+            rightBound = mid;
+        else    
+            leftBound = mid;
+    }
+
+    return leftBound;
+}
+\end{lstlisting}
+
+\large
+\huge\textbf{Binary Search}
+\large
+\begin{lstlisting}
+//l = 0, r = n-1
+void permute(vector<int> &a, int l, int r){
+	if (l >= r){
+		//verificar permutacao, guarda-la leva a MLE
+		verifica();
+	}
+	else{
+		//Fazer todas as permutacoes
+		for (int i = l; i <= r; i++){
+			swap(a[l], a[i]);
+			permute(a, l+1, r);
+			swap(a[l], a[i]);
+		}
+	}
+}
 \end{lstlisting}
 
 \end{multicols}
