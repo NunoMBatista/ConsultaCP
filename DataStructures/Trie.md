@@ -1,5 +1,6 @@
 Estrutura que permite guardar palavras procuradas em forma de autómato
 Complexidade: ?
+
 ```c++
 template<char MIN_CHAR = 'a', int ALPHABET = 26>
 struct array_trie {

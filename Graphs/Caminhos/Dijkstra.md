@@ -1,6 +1,7 @@
 Dijkstra's algorithm finds the shortest path in a directed and weighted graph storing the value in a distance vector.
 Complexity: $O(E\log{V})$
-```c++							 
+
+```c++
 vector<int> dijkstra(vector<vector<pii>>& adjMatrix, int source, int target) {
 	int n = adjMatrix.size();
 	vector<int> dist(n, INF);

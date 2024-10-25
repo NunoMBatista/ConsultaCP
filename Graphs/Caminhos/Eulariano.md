@@ -1,5 +1,6 @@
 Algoritmo que encontra um caminho eulariano. Caminho eulariano é aquele que passa por todas as arestas 1 vez apenas e termina no mesmo vertice que começa
 Complexidade: O(|E|)
+
 ```c++
 //Para grafo direcionado, nao é preciso arestas. Guarda-se o vertices de saida diretamente na list. Outras mudanças são necessárias
 //Verificar se é conexo (dfs) e todos os vertices têm grau par. Para semi-eulariano, 2 vertices com grau impar, restantes par

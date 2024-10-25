@@ -1,5 +1,6 @@
 Estrutura que permite guardar keys (únicas) e seus respetivos valores numa arvore.
 Complexidade: Inserção, remoção e pesquisa - O(log(N)) sendo N = numeros de keys guardadas
+
 ```c++
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>

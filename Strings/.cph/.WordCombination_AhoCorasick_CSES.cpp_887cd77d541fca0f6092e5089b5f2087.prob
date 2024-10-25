@@ -1,0 +1,1 @@
+{"name":"Local: WordCombination_AhoCorasick_CSES","url":"/home/nuno/Desktop/ConsultaCP/Strings/WordCombination_AhoCorasick_CSES.cpp","tests":[{"id":1729595148368,"input":"AAAACACBA","output":"AACABACAA"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/nuno/Desktop/ConsultaCP/Strings/WordCombination_AhoCorasick_CSES.cpp","group":"local","local":true}

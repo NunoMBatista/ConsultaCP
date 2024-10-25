@@ -1,5 +1,6 @@
 Algoritmo que permite saber qual é o menor custo possível para obter o maior fluxo. O fluxo máximo é sempre obtido.
 Complexidade: ?
+
 ```c++
 typedef tuple<int, ll, ll, ll> edge;
 class min_cost_max_flow {

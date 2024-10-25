@@ -1,5 +1,6 @@
 Algoritmo que encontra o maior fluxo que um grafo pode tranferir. Este maior fluxo também corresponde ao fluxo minimo que se deve cortar para impedir passagem de fluxo no grafo. As arestas a serem cortadas podem ser guardadas
 Complexidade: ?
+
 ```c++
 template<class T> void dfs(int s, vector<unordered_map<int, T>> &graph, vv &adjacency, vb &visited){
 	visited[s] = true;

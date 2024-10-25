@@ -1,6 +1,7 @@
 Estrutura que permite guardar e alterar Segment Trees ao longo do tempo
 Complexidade: Construção da primeira SegTree - O(2*N) sendo N = tamanho do array
               Update - O(log(N)) sendo N = tamanho do array
+
 ```c++
 struct Node{ int mn, l, r; };
 
