@@ -419,6 +419,25 @@ using oset = tree<int,         // key type
 		tree_order_statistics_node_update>;
 auto s = oset();
 
+int main() {
+  auto s = oset();
+
+  s.insert(10);
+  s.insert(50);
+  s.insert(42);
+
+  cout << *s.find_by_order(0) << '\n';
+  cout << *s.find_by_order(1) << '\n';
+  cout << *s.find_by_order(2) << '\n';
+
+  cout << s.order_of_key(10) << '\n';
+  cout << s.order_of_key(42) << '\n';
+  cout << s.order_of_key(50) << '\n';
+  cout << s.order_of_key(-2) << '\n';
+
+  return 0;
+}
+
 // --------------------------------------
 
 #include <ext/pb_ds/assoc_container.hpp>
@@ -432,7 +451,72 @@ using omap = tree<int,         // key type
 		tree_order_statistics_node_update>;
 auto m = omap();
 
+int main() {
+  auto m = omap();
+
+  m.insert(make_pair(10, 1));
+  m.insert(make_pair(50, 5));
+  m.insert(make_pair(42, 4));
+
+  auto it0 = m.find_by_order(0);
+  cout << it0->first << " " << it0->second << '\n';
+
+  auto it1 = m.find_by_order(1);
+  cout << it1->first << " " << it1->second << '\n';
+
+  auto it2 = m.find_by_order(2);
+  cout << it2->first << " " << it2->second << '\n';
+
+  cout << m.order_of_key(10) << '\n';
+  cout << m.order_of_key(42) << '\n';
+  cout << m.order_of_key(50) << '\n';
+  cout << m.order_of_key(-2) << '\n';
+
+  return 0;
+}
 \end{lstlisting}
+
+\huge\textbf{PATRICIA Trie Set}
+\begin{lstlisting}
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/trie_policy.hpp>
+
+using namespace std;
+using namespace __gnu_pbds;
+
+using ptset = trie<string,
+					null_type,
+					trie_string_access_traits<>,
+					pat_trie_tag,
+					trie_prefix_search_node_update>;
+
+int main() {
+	auto s = ptset();
+
+	s.insert("to");
+	s.insert("tea");
+	s.insert("ted");
+	s.insert("ten");
+	s.insert("a");
+	s.insert("in");
+	s.insert("inn");
+
+	// AMMOUNT OF ELEMENTS
+	cout << s.size() << "\n";
+
+	// CHECKS IF A GIVEN STRING EXISTS
+	cout << boolalpha << (s.find("tea") != s.end()) << "\n";
+	cout << boolalpha << (s.find("te") != s.end()) << "\n";
+
+	// FINDS AND COUNTS THE NUMBER OF STRINGS WITH A GIVEN PREFIX
+	auto prefix_range = s.prefix_range("te");
+	cout << distance(prefix_range.first, prefix_range.second) << "\n";
+
+	return 0;
+}
+\end{lstlisting}
+
 
 \large
 \huge\textbf{Segment Tree}
@@ -1292,6 +1376,104 @@ void tarjan(){
 	}
 	
 }	
+\end{lstlisting}
+
+\large
+\huge\textbf{Building Roads (Tarjan Example)}
+\large
+\begin{lstlisting}
+#include <bits/stdc++.h> 
+
+using namespace std;
+	
+typedef long long ll;
+
+ll n, m;
+vector<vector<ll>> graph;  
+vector<vector<ll>> SCCs;
+vector<bool> visited;
+vector<ll> ids; 
+vector<ll> low;
+ll counter; 
+stack<ll> S;
+vector<bool> onStack;
+ll id;
+
+void dfs(ll cur){
+	S.push(cur);
+	onStack[cur] = true;
+	ids[cur] = low[cur] = id;
+	id++;
+
+	for(auto adj: graph[cur]){
+		if(ids[adj] == -1){
+			dfs(adj);
+		}
+		// If statement after the DFS callback
+		if(onStack[adj]){
+			low[cur] = min(low[cur], low[adj]);
+		}
+	}
+
+	// SCC root found
+	ll top = -1;
+	if(ids[cur] == low[cur]){
+		vector<ll> newSCC;
+		while(top != cur){
+			top = S.top(); S.pop();
+			onStack[top] = false;
+			low[top] = ids[cur];
+			newSCC.push_back(top);
+		}
+		SCCs.push_back(newSCC);
+		counter++;
+	}
+}
+
+void tarjan(){
+	id = 1;
+	counter = 0;
+	
+	for(ll i = 1; i <= n; ++i){
+		if(ids[i] == -1){
+			dfs(i);
+		}
+	}
+	
+}
+
+void solve(){
+	cin >> n >> m; 
+	graph.resize(n+1);
+	ids.resize(n+1, -1);
+	low.resize(n+1, 0);
+	onStack.resize(n+1, false);
+	ll u, v;
+
+	for(ll i = 0; i < m; ++i){
+		cin >> u >> v;
+		graph[u].push_back(v);
+		graph[v].push_back(u);
+	}
+
+	tarjan();
+	
+	cout << counter-1 << endl;
+	for(ll i = 0; i < counter-1; i++){
+		cout << SCCs[i][0] << " " << SCCs[i+1][0] << endl;
+	}
+}
+int main()
+{
+	ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+	ll t = 1;
+	//cin >> t;
+	for(int it=1;it<=t;it++) {
+		//cout << "Case #" << it+1 << ": ";
+		solve();
+	}
+	return 0;
+}
 \end{lstlisting}
 
 
