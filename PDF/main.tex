@@ -1321,6 +1321,55 @@ int main(){
 \end{lstlisting}
 
 \large
+\huge\textbf{Max Bipartite Matching}
+\large
+\begin{lstlisting}
+vector<vector<int>> graph;
+vector<int> match;
+
+bool bpm(int u, vector<bool>& visited) {
+	for(int v : graph[u]) {
+		if(!visited[v]) {
+			visited[v] = true;
+			if(match[v] == -1 || bpm(match[v], visited)) {
+				match[v] = u;
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+void solve(){
+	int n, m; 
+	cin >> n >> m; 
+	graph.resize(n+1);
+	
+	int col;
+	int add; 
+	for(int i = 1; i <= n; i++){
+		cin >> col; 
+		
+		for(int j = 0; j < col; j++){
+			cin >> add; 
+			graph[i].push_back(add);
+		}
+	}
+
+	match.assign(m + 1, -1);
+
+	int result = 0;
+	for(int u = 1; u <= n; u++) {
+		vector<bool> visited(m + 1, false);
+		if(bpm(u, visited))
+			result++;
+	}
+
+	cout << result << endl;
+}
+\end{lstlisting}
+
+\large
 \huge\textbf{Tarjan (Strongly Connected Components)}
 \large
 \begin{lstlisting}
