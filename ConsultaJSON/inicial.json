@@ -36,7 +36,7 @@
 			"#define cut(str, s, e) (string(str.begin() + s, str.end() + e))",
 			"#define pqTopMaior(t) priority_queue<t, vector<t>, less<t>>",
 			"#define pqTopMenor(t) priority_queue<t, vector<t>, greater<t>>",
-			"inline int mod(int a, int m) {return ((a%m) + m)%m;}",
+			"inline ll mod(ll a, ll m) {return ((a%m) + m)%m;}",
 			"",
 			"int main() {",
 			"\tios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);",
