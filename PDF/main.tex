@@ -2733,6 +2733,35 @@ int LCS(string a, string b, int tamA, int tamB){
 \end{lstlisting}
 
 \large
+\huge\textbf{LCS (reconstruir a sequencia)}
+\large
+\begin{lstlisting}
+string LCSString(string a, string b, int tamA, int tamB){
+	// Tabela igual a do LCS: bu[i][j] = tamanho da LCS de a[0..i-1] e b[0..j-1]
+	vv bu(tamA + 1, vi(tamB + 1, 0));
+	for (int i = 1; i <= tamA; i++){
+		for (int j = 1; j <= tamB; j++){
+			if (a[i-1] == b[j-1]) bu[i][j] = bu[i-1][j-1] + 1;
+			else bu[i][j] = max(bu[i-1][j], bu[i][j-1]);
+		}
+	}
+	// Reconstrucao: andar para tras desde bu[tamA][tamB] pelo caminho que deu o maximo
+	string res = "";
+	int i = tamA, j = tamB;
+	while (i > 0 && j > 0){
+		if (a[i-1] == b[j-1]){                  // caracter igual -> faz parte da LCS
+			res += a[i-1];
+			i--; j--;
+		}
+		else if (bu[i-1][j] >= bu[i][j-1]) i--; // o valor veio de cima
+		else j--;                               // o valor veio da esquerda
+	}
+	reverse(res.begin(), res.end());            // foi construida de tras para a frente
+	return res;
+}
+\end{lstlisting}
+
+\large
 \begin{center}
 \huge\textbf{--- MISCELLANEOUS ---}
 \end{center}
