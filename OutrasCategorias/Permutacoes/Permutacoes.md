@@ -17,3 +17,27 @@ void permute(vector<int> &a, int l, int r){
 	}
 }
 ```
+
+Forma mais simples de imprimir todas as permutações, todas as combinações (subconjuntos) e as combinações de tamanho k:
+```c++
+// Todas as permutacoes de v (por ordem, sem repetidas)
+sort(all(v));
+do {
+	for (int x : v) cout << x << " ";
+	cout << ln;
+} while (next_permutation(all(v)));
+
+// Todas as combinacoes (subconjuntos) de v: bit i de m ligado -> v[i] escolhido
+for (int m = 0; m < (1 << n); m++){
+	for (int i = 0; i < n; i++) if (m >> i & 1) cout << v[i] << " ";
+	cout << ln;
+}
+
+// Combinacoes de tamanho k: permutar uma mascara com k uns
+vi sel(n, 0);
+fill(sel.end() - k, sel.end(), 1);
+do {
+	for (int i = 0; i < n; i++) if (sel[i]) cout << v[i] << " ";
+	cout << ln;
+} while (next_permutation(all(sel)));
+```

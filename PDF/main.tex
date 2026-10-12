@@ -2512,6 +2512,36 @@ vi numCoprimosMtQueries(ll Max_n){      //Max_n <= 10^7     Numero de coprimos p
 \large
 
 \large
+\huge\textbf{String Basics (ler, limpar, escrever)}
+\large
+\begin{lstlisting}
+// ===== LER =====
+cin >> n; cin.ignore();                  // antes de getline, senao o 1o getline vem vazio
+getline(cin, line);                      // linha inteira com espacos: "ola mundo 42"
+
+stringstream ss(line);                   // partir em palavras: "ola mundo 42" -> "ola", "mundo", "42"
+while (ss >> w) { }
+
+stringstream ss2("a,b,,c");              // partir por separador: "a,b,,c" -> "a", "b", "", "c"
+while (getline(ss2, part, ',')) { }
+
+while (getline(cin, line)) { }           // ler linhas ate ao fim do input (quando nao dao N)
+
+sscanf("14:35", "%d:%d", &h, &m);        // formato fixo: "14:35" -> h = 14, m = 35
+
+// ===== LIMPAR =====
+for (char &c : s) c = tolower(c);        // "OlA Mundo" -> "ola mundo"
+s.erase(remove_if(all(s), [](char c){ return !isalpha(c); }), s.end());   // "a, b!" -> "ab"
+
+// ===== ESCREVER =====
+cout << fixed << setprecision(2) << x;                          // 3.14159 -> "3.14"
+cout << setfill('0') << setw(2) << h << ":" << setw(2) << m;    // 7, 5 -> "07:05"
+// alinhar a esquerda em 10 colunas: "Ana" -> "Ana       |"
+// (setfill/left ficam ativos; setw so vale 1 vez)
+cout << setfill(' ') << left << setw(10) << nome << "|";
+\end{lstlisting}
+
+\large
 \huge\textbf{Aho-Corasick}
 \large
 \begin{lstlisting}
@@ -2645,21 +2675,45 @@ void solve(){
 \large
 \begin{lstlisting}
 int EditDistance(string a, string b, int tamA, int tamB){
-	vv bu(tamA + 1, vi(tamB + 1, 0));
-	for (int i = 0; i <= tamA; i++){
-		bu[i][0] = i;
-	}
-	for (int i = 0; i <= tamB; i++){
-		bu[0][i] = i;
-	}
-	for (int i = 1; i <= tamA; i++){
-		for (int j = 1; j <= tamB; j++){
-			if (a[i-1] == b[j-1]) bu[i][j] = min(min(bu[i-1][j-1], bu[i-1][j] + 1), bu[i][j-1] + 1);
-			else bu[i][j] = min(min(bu[i-1][j] + 1, bu[i][j-1] + 1), bu[i-1][j-1] + 1);
-		}
-	}
+	vv bu(tamA + 1, vi(tamB + 1));
+	for (int i = 0; i <= tamA; i++) bu[i][0] = i;   // apagar tudo
+	for (int j = 0; j <= tamB; j++) bu[0][j] = j;   // inserir tudo
+	for (int i = 1; i <= tamA; i++)
+		for (int j = 1; j <= tamB; j++)
+			bu[i][j] = min({bu[i-1][j] + 1,                          // apagar a[i-1]
+			                bu[i][j-1] + 1,                          // inserir b[j-1]
+			                bu[i-1][j-1] + (a[i-1] != b[j-1])});     // substituir (gratis se iguais)
 	return bu[tamA][tamB];
-}	
+}
+\end{lstlisting}
+
+\large
+\huge\textbf{Edit Distance (operacoes)}
+\large
+\begin{lstlisting}
+// Igual ao EditDistance, mas devolve as operacoes por ordem (da esquerda para a direita de a)
+vector<string> EditOps(string a, string b, int tamA, int tamB){
+	vv bu(tamA + 1, vi(tamB + 1));
+	for (int i = 0; i <= tamA; i++) bu[i][0] = i;
+	for (int j = 0; j <= tamB; j++) bu[0][j] = j;
+	for (int i = 1; i <= tamA; i++)
+		for (int j = 1; j <= tamB; j++)
+			bu[i][j] = min({bu[i-1][j] + 1, bu[i][j-1] + 1, bu[i-1][j-1] + (a[i-1] != b[j-1])});
+	// Andar para tras desde bu[tamA][tamB], vendo de que vizinho veio cada valor
+	vector<string> ops;
+	int i = tamA, j = tamB;
+	while (i > 0 || j > 0){
+		if (i > 0 && j > 0 && bu[i][j] == bu[i-1][j-1] + (a[i-1] != b[j-1])){
+			if (a[i-1] == b[j-1]) ops.push_back(string("manter ") + a[i-1]);
+			else ops.push_back(string("trocar ") + a[i-1] + " por " + b[j-1]);
+			i--; j--;
+		}
+		else if (i > 0 && bu[i][j] == bu[i-1][j] + 1){ ops.push_back(string("apagar ") + a[i-1]); i--; }
+		else { ops.push_back(string("inserir ") + b[j-1]); j--; }
+	}
+	reverse(ops.begin(), ops.end());   // foram encontradas de tras para a frente
+	return ops;
+}
 \end{lstlisting}
 
 \large
@@ -2768,6 +2822,32 @@ string LCSString(string a, string b, int tamA, int tamB){
 \large
 
 \large
+\huge\textbf{Dates (Leap Year, Day of Week, Day Count)}
+\large
+\begin{lstlisting}
+// Ano bissexto: divisivel por 4, exceto seculos que nao sao divisiveis por 400
+bool bissexto(ll y){ return (y % 4 == 0 && y % 100 != 0) || y % 400 == 0; }
+
+int diasNoMes(int m, ll y){
+	int dm[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+	return (m == 2 && bissexto(y)) ? 29 : dm[m-1];
+}
+
+// Dia da semana: 0 = Domingo, 1 = Segunda, ..., 6 = Sabado
+int diaSemana(int d, int m, ll y){
+	int t[] = {0,3,2,5,0,3,5,1,4,6,2,4};
+	if (m < 3) y--;
+	return (y + y/4 - y/100 + y/400 + t[m-1] + d) % 7;
+}
+
+// No de dias desde uma data fixa (1/1/1 = 1). Diferenca entre datas = dias(d2) - dias(d1)
+ll dias(int d, int m, ll y){
+	if (m < 3){ y--; m += 12; }   // Jan e Fev contam como meses 13 e 14 do ano anterior
+	return 365*y + y/4 - y/100 + y/400 + (153*(m-3) + 2)/5 + d - 306;
+}
+\end{lstlisting}
+
+\large
 \huge\textbf{Binary Search}
 \large
 \begin{lstlisting}
@@ -2793,24 +2873,104 @@ ll bestXforF (){
 }
 \end{lstlisting}
 
+
 \large
-\huge\textbf{Permutations}
+\huge\textbf{Permutations and Combinations}
 \large
 \begin{lstlisting}
-//l = 0, r = n-1
-void permute(vector<int> &a, int l, int r){
-	if (l >= r){
-		//verificar permutacao, guarda-la leva a MLE
-		verifica();
+// Todas as permutacoes de v (por ordem, sem repetidas)
+sort(all(v));
+do {
+	for (int x : v) cout << x << " ";
+	cout << ln;
+} while (next_permutation(all(v)));
+
+// Todas as combinacoes (subconjuntos) de v: bit i de m ligado -> v[i] escolhido
+for (int m = 0; m < (1 << n); m++){
+	for (int i = 0; i < n; i++) if (m >> i & 1) cout << v[i] << " ";
+	cout << ln;
+}
+
+// Combinacoes de tamanho k: permutar uma mascara com k uns
+vi sel(n, 0);
+fill(sel.end() - k, sel.end(), 1);
+do {
+	for (int i = 0; i < n; i++) if (sel[i]) cout << v[i] << " ";
+	cout << ln;
+} while (next_permutation(all(sel)));
+\end{lstlisting}
+
+\large
+\huge\textbf{Backtracking}
+\large
+\begin{lstlisting}
+// BACKTRACKING: build a solution one move at a time; after exploring a move, undo it.
+// Only the small functions change between problems; backtrack() is always the same.
+// Example (MIUP 2021 E): write a name with chemical element symbols, "alves" -> al v es
+
+string name;                            // input, lowercase
+set<string> elementSymbols;             // lowercase symbols: "h", "he", "al", ...
+int position = 0;                       // how many letters of the name are already covered
+vector<string> chosenSymbols;           // moves made so far = the partial solution
+
+// Is the current partial solution finished?
+bool isCompleteSolution(){ return position == (int)name.size(); }
+
+// List every move that is allowed from the current state
+vector<string> possibleMoves(){
+	vector<string> moves;
+	for (int length = 1; length <= 2; length++){
+		if (position + length > (int)name.size()) break;
+		string piece = name.substr(position, length);
+		if (elementSymbols.count(piece)) moves.push_back(piece);
 	}
-	else{
-		//Fazer todas as permutacoes
-		for (int i = l; i <= r; i++){
-			swap(a[l], a[i]);
-			permute(a, l+1, r);
-			swap(a[l], a[i]);
-		}
+	return moves;
+}
+
+// Make a move: update the state
+void applyMove(const string& symbol){
+	chosenSymbols.push_back(symbol);
+	position += symbol.size();
+}
+
+// Undo a move: put the state back exactly as it was before applyMove
+void undoMove(const string& symbol){
+	chosenSymbols.pop_back();
+	position -= symbol.size();
+}
+
+// What to do with each complete solution (the goal): here, print it.
+// To count instead: solutionCount++;   To find the best: compare and keep it.
+void handleSolution(){
+	for (const string& symbol : chosenSymbols) cout << symbol << " ";
+	cout << "\n";
+}
+
+// Try every move, go deeper, undo; reaches every complete solution once
+void backtrack(){
+	if (isCompleteSolution()){ handleSolution(); return; }
+	// pruning goes here: if (this branch can no longer reach a solution) return;
+	for (const string& move : possibleMoves()){
+		applyMove(move);
+		backtrack();
+		undoMove(move);
 	}
+}
+
+// COUNT VERSION: how many complete solutions can be reached from the current state.
+// Same helper functions as above. The memo makes it fast: each state is solved only once.
+map<int, long long> countMemo;          // state (here: position) -> number of solutions
+
+long long countSolutions(){
+	if (isCompleteSolution()) return 1;
+	if (countMemo.count(position)) return countMemo[position];   // state already solved
+	long long total = 0;
+	for (const string& move : possibleMoves()){
+		applyMove(move);
+		total += countSolutions();
+		undoMove(move);
+	}
+	return countMemo[position] = total;
 }
 \end{lstlisting}
 
