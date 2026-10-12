@@ -44,13 +44,15 @@ void handleSolution(){
 }
 
 // Try every move, go deeper, undo; reaches every complete solution once
+// int depth = 0;
 void backtrack(){
 	if (isCompleteSolution()){ handleSolution(); return; }
 	// pruning goes here: if (this branch can no longer reach a solution) return;
 	for (const string& move : possibleMoves()){
-		applyMove(move);
+		// cerr << string(2 * depth, ' ') << "try " << move << "\n";
+		applyMove(move);    // depth++;
 		backtrack();
-		undoMove(move);
+		undoMove(move);     // depth--;
 	}
 }
 
