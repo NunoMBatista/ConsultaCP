@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.3.29)  12 OCT 2026 10:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.3.29)  12 OCT 2026 10:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -537,22 +537,22 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14629 strings out of 474222
- 219458 string characters out of 5748733
- 3115975 words of memory out of 5000000
+ 14648 strings out of 474222
+ 219759 string characters out of 5748733
+ 3270975 words of memory out of 5000000
  34196 multiletter control sequences out of 15000+600000
  564471 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,541b,2095s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,541b,2094s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on main.pdf (25 pages, 212795 bytes).
+Output written on main.pdf (25 pages, 213433 bytes).
 PDF statistics:
- 3196 PDF objects out of 3580 (max. 8388607)
- 3127 compressed objects within 32 object streams
- 2543 named destinations out of 2984 (max. 500000)
+ 3219 PDF objects out of 3580 (max. 8388607)
+ 3150 compressed objects within 32 object streams
+ 2562 named destinations out of 2984 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
