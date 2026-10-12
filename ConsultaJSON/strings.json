@@ -134,16 +134,26 @@
 	},
 	"Longest Common Subsequence":{
 		"prefix":"LCS",
-		"body":["int LCS(string a, string b, int tamA, int tamB){",
+		"body":["// Variants: each comment below says how to change the line right ABOVE it.",
+						"//   CONTIGUOUS = longest common SUBSTRING (no skipping characters)",
+						"//   DUPLICATE  = longest part that appears twice in ONE string s",
+						"//   both       = longest duplicate substring of s",
+						"int LCS(string a, string b, int tamA, int tamB){",
 						"\tvv bu(tamA + 1, vi(tamB + 1, 0));",
+						"\t// CONTIGUOUS: add a new line  int best = 0;",
 						"\tfor (int i = 1; i <= tamA; i++){",
 						"\t\tfor (int j = 1; j <= tamB; j++){",
 						"\t\t\tif (a[i-1] == b[j-1]) bu[i][j] = bu[i-1][j-1] + 1;",
+						"\t\t\t// CONTIGUOUS: inside this if, also do  best = max(best, bu[i][j]);",
+						"\t\t\t// DUPLICATE: the condition becomes  a[i-1] == b[j-1] && i != j",
 						"\t\t\telse bu[i][j] = max(bu[i-1][j], bu[i][j-1]);",
+						"\t\t\t// CONTIGUOUS: this becomes  else bu[i][j] = 0;",
 						"\t\t}",
 						"\t}",
 						"\treturn bu[tamA][tamB];",
-						"}"
+						"\t// CONTIGUOUS: this becomes  return best;",
+						"}",
+						"// DUPLICATE: call it as LCS(s, s, n, n)"
 		],
 		"description":"tamanho da maior subsequecia comum as duas palavras (nao necessariamente continua)"
 	},

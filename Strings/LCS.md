@@ -1,16 +1,26 @@
 Algoritmo que encontra a maior subsequência comum a duas strings (não necessariamente contínua)
 Complexidade: O(N*M), sendo N = tamanho da string A e M = tamanho da string B
 ```c++
+// Variants: each comment below says how to change the line right ABOVE it.
+//   CONTIGUOUS = longest common SUBSTRING (no skipping characters)
+//   DUPLICATE  = longest part that appears twice in ONE string s
+//   both       = longest duplicate substring of s
 int LCS(string a, string b, int tamA, int tamB){
 	vv bu(tamA + 1, vi(tamB + 1, 0));
+	// CONTIGUOUS: add a new line  int best = 0;
 	for (int i = 1; i <= tamA; i++){
 		for (int j = 1; j <= tamB; j++){
 			if (a[i-1] == b[j-1]) bu[i][j] = bu[i-1][j-1] + 1;
+			// CONTIGUOUS: inside this if, also do  best = max(best, bu[i][j]);
+			// DUPLICATE: the condition becomes  a[i-1] == b[j-1] && i != j
 			else bu[i][j] = max(bu[i-1][j], bu[i][j-1]);
+			// CONTIGUOUS: this becomes  else bu[i][j] = 0;
 		}
 	}
 	return bu[tamA][tamB];
+	// CONTIGUOUS: this becomes  return best;
 }
+// DUPLICATE: call it as LCS(s, s, n, n)
 ```
 
 Para obter a subsequência em si (e não só o tamanho), constrói-se a mesma tabela e depois anda-se para trás desde bu[tamA][tamB]. O tamanho é res.size().
