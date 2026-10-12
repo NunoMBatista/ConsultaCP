@@ -50,3 +50,36 @@ string LCSString(string a, string b, int tamA, int tamB){
 	return res;
 }
 ```
+
+Counting LCSs (length + number of ways), e.g. MIUP 2023 J:
+```c++
+// Count LCSs: returns {LCS length, number of ways to form an LCS of that length}
+// Works for string or vector (e.g. vector<pii>).
+// Ways = different choices of matched positions.
+template<class T> pair<int, ll> LCSCount(const T& a, const T& b){
+	int lengthA = a.size(), lengthB = b.size();
+	// len[i][j] = LCS length using the first i elements of a and the first j of b
+	vv len(lengthA + 1, vi(lengthB + 1, 0));
+	// ways[i][j] = how many LCSs of length len[i][j] (an empty prefix has 1 way)
+	vector<vll> ways(lengthA + 1, vll(lengthB + 1, 1));
+	for (int i = 1; i <= lengthA; i++)
+		for (int j = 1; j <= lengthB; j++){
+			bool match = (a[i-1] == b[j-1]);
+			len[i][j] = max(len[i-1][j], len[i][j-1]);
+			if (match) len[i][j] = max(len[i][j], len[i-1][j-1] + 1);
+			// add the ways of each neighbour that reaches the same length:
+			// diagonal = use the match, up = skip a[i-1], left = skip b[j-1].
+			// The diagonal's ways are inside both up and left -> subtract once.
+			ll total = 0;
+			if (match && len[i-1][j-1] + 1 == len[i][j])
+				total += ways[i-1][j-1];
+			if (len[i-1][j] == len[i][j]) total += ways[i-1][j];
+			if (len[i][j-1] == len[i][j]) total += ways[i][j-1];
+			if (len[i-1][j-1] == len[i][j]) total -= ways[i-1][j-1];
+			ways[i][j] = total;
+			// modulo problems: ways[i][j] = ((total % MOD) + MOD) % MOD;
+		}
+	return {len[lengthA][lengthB], ways[lengthA][lengthB]};
+}
+// Memory: 2 tables of n*m. For n, m ~ 4000, keep only the previous row of each table.
+```

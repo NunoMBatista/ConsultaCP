@@ -129,7 +129,7 @@ int main() {
 \end{lstlisting}
 
 \large
-\huge\textbf{Map and Set Basics}
+\Large\textbf{Map and Set Basics}
 \large
 \begin{lstlisting}
 map<string, int> wordCount;                    // sorted by key; wordCount["x"] creates "x" with 0
@@ -159,7 +159,7 @@ maxHeap.push(4); int topValue = maxHeap.top(); maxHeap.pop();
 \large
 
 \large
-\huge\textbf{Coin Change Min Coins}
+\Large\textbf{Coin Change Min Coins}
 \large
 \begin{lstlisting}
 //Retorna INF caso seja impossivel
@@ -186,7 +186,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Coin Change Number of Combinations}
+\Large\textbf{Coin Change Number of Combinations}
 \large
 \begin{lstlisting}
 void solve(){
@@ -212,7 +212,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Coin Change Number of Combinations (Ordered)}
+\Large\textbf{Coin Change Number of Combinations (Ordered)}
 \large
 \begin{lstlisting}
 ll combs (ll change, vll coins){
@@ -242,7 +242,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Box Stacking}
+\Large\textbf{Box Stacking}
 \large
 \begin{lstlisting}
 // FIND TALLEST POSSIBLE STACK (LENGTH, WIDTH, HEIGHT)
@@ -287,7 +287,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Knapsack (Top-Down)}
+\Large\textbf{Knapsack (Top-Down)}
 \large
 \begin{lstlisting}
 // Returns the value of maximum profit
@@ -350,7 +350,7 @@ int main()
 \end{lstlisting}
 
 \large
-\huge\textbf{Knapsack (Bottom-Up)}
+\Large\textbf{Knapsack (Bottom-Up)}
 \large
 \begin{lstlisting}
 int knapsack(int W, int n, vi &price, vi &weight){        //linear memory
@@ -367,7 +367,7 @@ return aux[W];
 \end{lstlisting}
 
 \large
-\huge\textbf{Longest Increasing Subsequence}
+\Large\textbf{Longest Increasing Subsequence}
 \large
 \begin{lstlisting}
 void printLIS(int i, vi &p, vi &arr){       //imprime LIS, sabendo o ultimo indice
@@ -400,7 +400,7 @@ pii LIS(int n, vi &p, vi &arr){     //retorna maior LIS e o ultimo indice do mai
 
 
 \large
-\huge\textbf{Monotonic Paths}
+\Large\textbf{Monotonic Paths}
 \large
 \begin{lstlisting}
 //n e m arestas, NAO vertices
@@ -430,7 +430,7 @@ ll Monotonic(int n, int m, ll p){				//Se for n*n, usar mod(Catalan(n)*(n+1), m)
 \end{center}
 \large
 
-\huge\textbf{Order Statistic Tree (Map and Set)}
+\Large\textbf{Order Statistic Tree (Map and Set)}
 \begin{lstlisting}
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
@@ -500,7 +500,7 @@ int main() {
 }
 \end{lstlisting}
 
-\huge\textbf{PATRICIA Trie Set}
+\Large\textbf{PATRICIA Trie Set}
 \begin{lstlisting}
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -543,7 +543,7 @@ int main() {
 
 
 \large
-\huge\textbf{Segment Tree}
+\Large\textbf{Segment Tree}
 \large
 \begin{lstlisting}	
 #define op(l, r) (l + r);
@@ -624,7 +624,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Segment Tree (Max Prefix Sum)}
+\Large\textbf{Segment Tree (Max Prefix Sum)}
 \large
 \begin{lstlisting}
 const ll inf = 1e9;
@@ -708,7 +708,7 @@ struct Node {
 
 
 \large
-\huge\textbf{Persistent Segtree}
+\Large\textbf{Persistent Segtree}
 \large
 \begin{lstlisting}
 struct Node{ int mn, l, r; };
@@ -749,7 +749,7 @@ Node st[22*n];
 \end{lstlisting}
 
 \large
-\huge\textbf{Trie}
+\Large\textbf{Trie}
 \large
 \begin{lstlisting}
 template<char MIN_CHAR = 'a', int ALPHABET = 26>
@@ -836,7 +836,7 @@ struct array_trie {
 \end{lstlisting}
 
 \large
-\huge\textbf{Persistent Trie}
+\Large\textbf{Persistent Trie}
 \large
 \begin{lstlisting}
 // Node for lowercase strings
@@ -909,7 +909,7 @@ public:
 \end{lstlisting}
 
 \large
-\huge\textbf{Sparse Table}
+\Large\textbf{Sparse Table}
 \large
 \begin{lstlisting}
 class SparseTable{
@@ -969,7 +969,7 @@ class SparseTable{
 \large
 
 \large
-\huge\textbf{DFS}
+\Large\textbf{DFS}
 \large
 \begin{lstlisting}
 void dfs (int v, vector<bool> &visited, vv &graph){
@@ -984,7 +984,7 @@ void dfs (int v, vector<bool> &visited, vv &graph){
 \end{lstlisting}
 
 \large
-\huge\textbf{BFS}
+\Large\textbf{BFS}
 \large
 \begin{lstlisting}
 vector<bool> visited(1001, false);
@@ -1015,7 +1015,7 @@ void BFS (int root, int goal){
 \end{lstlisting}
 
 \large
-\huge\textbf{Flood Fill}
+\Large\textbf{Flood Fill}
 \large
 \begin{lstlisting}
 bool valid(int i, int j, int n, int m, vector<vector<char>> &grid){
@@ -1057,7 +1057,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Monsters/Avalanche Flood Fill}
+\Large\textbf{Monsters/Avalanche Flood Fill}
 \large
 \begin{lstlisting}
 vector<vector<ll>> dist;
@@ -1162,7 +1162,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Disjoint Set Union (Union Find)}
+\Large\textbf{Disjoint Set Union (Union Find)}
 \large
 \begin{lstlisting}
 //Cada valor comeca por ser o seu proprio set
@@ -1185,7 +1185,7 @@ bool check(int u, int v, vi &parent) {
 \end{lstlisting}
 
 \large
-\huge\textbf{Dijkstra}
+\Large\textbf{Dijkstra}
 \large
 \begin{lstlisting}
 vector<int> dijkstra(vector<vector<pii>>& adjMatrix, int source, int target) {
@@ -1219,7 +1219,7 @@ vector<int> dijkstra(vector<vector<pii>>& adjMatrix, int source, int target) {
 \end{lstlisting}
 
 \large
-\huge\textbf{Bellman-Ford}
+\Large\textbf{Bellman-Ford}
 \large
 \begin{lstlisting}
 vi BF(vvpii &adjList, int source){
@@ -1265,7 +1265,7 @@ vi BF(vvpii &adjList, int source){
 \end{lstlisting}
 
 \large
-\huge\textbf{Floyd-Warshall}
+\Large\textbf{Floyd-Warshall}
 \large
 \begin{lstlisting}
 void FW(vv &matrix, vv *p = NULL){
@@ -1298,7 +1298,7 @@ void printPath(int i, int j){						//Nao sei se esta funcao esta 100% correta ma
 	
 
 \large
-\huge\textbf{Bipartite Matching}
+\Large\textbf{Bipartite Matching}
 \large
 \begin{lstlisting}
 vv graph(1001);
@@ -1345,7 +1345,7 @@ int main(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Max Bipartite Matching}
+\Large\textbf{Max Bipartite Matching}
 \large
 \begin{lstlisting}
 vector<vector<int>> graph;
@@ -1394,7 +1394,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Topological Sort}
+\Large\textbf{Topological Sort}
 \large
 \begin{lstlisting}
 int n; // number of vertices
@@ -1424,7 +1424,7 @@ void topological_sort() {
 \end{lstlisting}
 
 \large
-\huge\textbf{Tarjan (Strongly Connected Components)}
+\Large\textbf{Tarjan (Strongly Connected Components)}
 \large
 \begin{lstlisting}
 vector<vector<ll>> graph;  
@@ -1482,7 +1482,7 @@ void tarjan(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Building Roads (Tarjan Example)}
+\Large\textbf{Building Roads (Tarjan Example)}
 \large
 \begin{lstlisting}
 #include <bits/stdc++.h> 
@@ -1581,7 +1581,7 @@ int main()
 
 
 \large
-\huge\textbf{Eulerian Path}
+\Large\textbf{Eulerian Path}
 \large
 \begin{lstlisting}
 //Para grafo direcionado, nao e preciso arestas. Guarda-se o vertices de saida diretamente na list. Outras mudancas sao necessarias
@@ -1613,7 +1613,7 @@ vi hierholzer(int s, vector<list<int>> &graph, vector<pair<pii, bool>> &arestas)
 \end{lstlisting}
 
 \large
-\huge\textbf{Max-Flow/Min-Cut}
+\Large\textbf{Max-Flow/Min-Cut}
 \large
 \begin{lstlisting}
 template<class T> void dfs(int s, vector<unordered_map<int, T>> &graph, vv &adjacency, vb &visited){
@@ -1683,7 +1683,7 @@ out:
 \end{lstlisting}
 
 \large
-\huge\textbf{MIUP 2022 B (Max-Flow/Min-Cut Example)}
+\Large\textbf{MIUP 2022 B (Max-Flow/Min-Cut Example)}
 \large
 \begin{lstlisting}
 void solve(){
@@ -1719,7 +1719,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Min-Cost/Max-Flow}
+\Large\textbf{Min-Cost/Max-Flow}
 \large
 \begin{lstlisting}
 typedef tuple<int, ll, ll, ll> edge;
@@ -1812,7 +1812,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{MIUP 2023 E (Min-Cost/Max-Flow Example)}
+\Large\textbf{MIUP 2023 E (Min-Cost/Max-Flow Example)}
 \large
 \begin{lstlisting}
 void solve(){
@@ -1860,7 +1860,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Articulation Points}
+\Large\textbf{Articulation Points}
 \large
 \begin{lstlisting}
 void AP(int v, vv &adj, vb &check, vi &dfs, vi &low, vi &parent, int &t, int &c){
@@ -1899,7 +1899,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Kruskal (Minimum Spanning Tree)}
+\Large\textbf{Kruskal (Minimum Spanning Tree)}
 \large
 \begin{lstlisting}
 //Cada valor comeca por ser o seu proprio set
@@ -1939,7 +1939,7 @@ template<class T> T KruskalMST(vector<tuple<T, int, int>> edges, int V){
 \end{lstlisting}
 
 \large
-\huge\textbf{Lowest Common Ancestor}
+\Large\textbf{Lowest Common Ancestor}
 \large
 \begin{lstlisting}
 void dfs(int cur, int depth, vv &adjMatrix, vb &visited, vi &L, vi &E, vi &H, int &idx){
@@ -1981,7 +1981,7 @@ void buildRMQ(int n, vv &adjMatrix, int m){
 \large
 
 \large
-\huge\textbf{Cicle Finding}
+\Large\textbf{Cicle Finding}
 \large
 \begin{lstlisting}
 	int f(int x){               //Avancar na expressao onde estamos a encontrar ciclo
@@ -2011,7 +2011,7 @@ pii floydCicleFinding(int x){             //Index (x) onde comeca a sequencia (a
 \end{lstlisting}
 
 \large
-\huge\textbf{Count Digits}
+\Large\textbf{Count Digits}
 \large
 \begin{lstlisting}
 int countDigits(double num, double baseNum, double baseNova){
@@ -2020,7 +2020,7 @@ int countDigits(double num, double baseNum, double baseNova){
 \end{lstlisting}
 
 \large
-\huge\textbf{Max Range Sum (1D and 2D)}
+\Large\textbf{Max Range Sum (1D and 2D)}
 \large
 \begin{lstlisting}
 ll maxRangeSum1D(int n, vll &arr){
@@ -2072,7 +2072,7 @@ ll maxRangeSum2D(int n, vvll &mat){
 \end{lstlisting}
 
 \large
-\huge\textbf{Max Subarray Sum}
+\Large\textbf{Max Subarray Sum}
 \large
 \begin{lstlisting}
 ll MaximumSubarraySumN(int n, vll &arr){
@@ -2132,7 +2132,7 @@ ll MaximumSubarraySumN(int n, vll &arr){
 
 
 \large
-\huge\textbf{Modular Arithmetic}
+\Large\textbf{Modular Arithmetic}
 \large
 \begin{lstlisting}
 // Modular function to avoid negative results
@@ -2172,7 +2172,7 @@ int modInverse(int A, int M){
 \end{lstlisting}
 
 \large
-\huge\textbf{Matrix Operations}
+\Large\textbf{Matrix Operations}
 \large
 \begin{lstlisting}
 vvll matMul(vvll &a, vvll &b, int MOD){              //Duas matrizes nao nulas, i -> linhas, j -> colunas
@@ -2213,7 +2213,7 @@ vvll matPow(vvll base, int p, int MOD){          //So matrizes quadradas
 
 
 \large
-\huge\textbf{Gaussian Elimination}
+\Large\textbf{Gaussian Elimination}
 \large
 \begin{lstlisting}
 #define MAX_N 100  //adjust this value as needed
@@ -2266,7 +2266,7 @@ int main(){
 \large
 
 \large
-\huge\textbf{Combinatorics}
+\Large\textbf{Combinatorics}
 \large
 \begin{lstlisting}
 int modInverse(int A, int M){
@@ -2321,7 +2321,7 @@ fatoriais(5000, MOD, fat);                                 //Colocar dentro da m
 \end{lstlisting}
 
 \large
-\huge\textbf{Number Theory}
+\Large\textbf{Number Theory}
 \large
 \begin{lstlisting}
 int extEuclidean(int a, int b, int &x, int &y){
@@ -2410,7 +2410,7 @@ inline long long int lcm (int a, int b){
 \end{lstlisting}
 
 \large
-\huge\textbf{Primes}
+\Large\textbf{Primes}
 \large
 \begin{lstlisting}
 ll sieve_size;
@@ -2536,7 +2536,7 @@ vi numCoprimosMtQueries(ll Max_n){      //Max_n <= 10^7     Numero de coprimos p
 \large
 
 \large
-\huge\textbf{String Basics (ler, limpar, escrever)}
+\Large\textbf{String Basics (ler, limpar, escrever)}
 \large
 \begin{lstlisting}
 // ===== LER =====
@@ -2566,7 +2566,7 @@ cout << setfill(' ') << left << setw(10) << nome << "|";
 \end{lstlisting}
 
 \large
-\huge\textbf{Aho-Corasick}
+\Large\textbf{Aho-Corasick}
 \large
 \begin{lstlisting}
 string text;    //Text
@@ -2669,7 +2669,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Word Combination (Aho-Corasick Example)}
+\Large\textbf{Word Combination (Aho-Corasick Example)}
 \large
 \begin{lstlisting}
 void solve(){
@@ -2695,7 +2695,7 @@ void solve(){
 
 
 \large
-\huge\textbf{Edit Distance}
+\Large\textbf{Edit Distance}
 \large
 \begin{lstlisting}
 int EditDistance(string a, string b, int tamA, int tamB){
@@ -2712,7 +2712,7 @@ int EditDistance(string a, string b, int tamA, int tamB){
 \end{lstlisting}
 
 \large
-\huge\textbf{Edit Distance (operacoes)}
+\Large\textbf{Edit Distance (operacoes)}
 \large
 \begin{lstlisting}
 // Igual ao EditDistance, mas devolve as operacoes por ordem (da esquerda para a direita de a)
@@ -2741,7 +2741,7 @@ vector<string> EditOps(string a, string b, int tamA, int tamB){
 \end{lstlisting}
 
 \large
-\huge\textbf{KMP}
+\Large\textbf{KMP}
 \large
 \begin{lstlisting}
 string T, P;                    // T = text, P = pattern
@@ -2780,7 +2780,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{String Matching (KMP Example)}
+\Large\textbf{String Matching (KMP Example)}
 \large
 \begin{lstlisting}
 void solve(){
@@ -2795,7 +2795,7 @@ void solve(){
 \end{lstlisting}
 
 \large
-\huge\textbf{Longest Common Subsequence}
+\Large\textbf{Longest Common Subsequence}
 \large
 \begin{lstlisting}
 // Variants: each comment below says how to change the line right ABOVE it.
@@ -2821,7 +2821,7 @@ int LCS(string a, string b, int tamA, int tamB){
 \end{lstlisting}
 
 \large
-\huge\textbf{LCS (reconstruir a sequencia)}
+\Large\textbf{LCS (reconstruir a sequencia)}
 \large
 \begin{lstlisting}
 string LCSString(string a, string b, int tamA, int tamB){
@@ -2850,13 +2850,48 @@ string LCSString(string a, string b, int tamA, int tamB){
 \end{lstlisting}
 
 \large
+\Large\textbf{LCS Count}
+\large
+\begin{lstlisting}
+// Count LCSs: returns {LCS length, number of ways to form an LCS of that length}
+// Works for string or vector (e.g. vector<pii>).
+// Ways = different choices of matched positions.
+template<class T> pair<int, ll> LCSCount(const T& a, const T& b){
+	int lengthA = a.size(), lengthB = b.size();
+	// len[i][j] = LCS length using the first i elements of a and the first j of b
+	vv len(lengthA + 1, vi(lengthB + 1, 0));
+	// ways[i][j] = how many LCSs of length len[i][j] (an empty prefix has 1 way)
+	vector<vll> ways(lengthA + 1, vll(lengthB + 1, 1));
+	for (int i = 1; i <= lengthA; i++)
+		for (int j = 1; j <= lengthB; j++){
+			bool match = (a[i-1] == b[j-1]);
+			len[i][j] = max(len[i-1][j], len[i][j-1]);
+			if (match) len[i][j] = max(len[i][j], len[i-1][j-1] + 1);
+			// add the ways of each neighbour that reaches the same length:
+			// diagonal = use the match, up = skip a[i-1], left = skip b[j-1].
+			// The diagonal's ways are inside both up and left -> subtract once.
+			ll total = 0;
+			if (match && len[i-1][j-1] + 1 == len[i][j])
+				total += ways[i-1][j-1];
+			if (len[i-1][j] == len[i][j]) total += ways[i-1][j];
+			if (len[i][j-1] == len[i][j]) total += ways[i][j-1];
+			if (len[i-1][j-1] == len[i][j]) total -= ways[i-1][j-1];
+			ways[i][j] = total;
+			// modulo problems: ways[i][j] = ((total % MOD) + MOD) % MOD;
+		}
+	return {len[lengthA][lengthB], ways[lengthA][lengthB]};
+}
+// Memory: 2 tables of n*m. For n, m ~ 4000, keep only the previous row of each table.
+\end{lstlisting}
+
+\large
 \begin{center}
 \huge\textbf{--- MISCELLANEOUS ---}
 \end{center}
 \large
 
 \large
-\huge\textbf{Dates (Leap Year, Day of Week, Day Count)}
+\Large\textbf{Dates (Leap Year, Day of Week, Day Count)}
 \large
 \begin{lstlisting}
 // Ano bissexto: divisivel por 4, exceto seculos que nao sao divisiveis por 400
@@ -2882,7 +2917,7 @@ ll dias(int d, int m, ll y){
 \end{lstlisting}
 
 \large
-\huge\textbf{Binary Search}
+\Large\textbf{Binary Search}
 \large
 \begin{lstlisting}
 bool F(ll target){
@@ -2909,7 +2944,7 @@ ll bestXforF (){
 
 
 \large
-\huge\textbf{Permutations and Combinations}
+\Large\textbf{Permutations and Combinations}
 \large
 \begin{lstlisting}
 // Todas as permutacoes de v (por ordem, sem repetidas)
@@ -2935,7 +2970,7 @@ do {
 \end{lstlisting}
 
 \large
-\huge\textbf{Backtracking}
+\Large\textbf{Backtracking}
 \large
 \begin{lstlisting}
 // BACKTRACKING: build a solution one move at a time; after exploring a move, undo it.
