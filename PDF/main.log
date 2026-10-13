@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.3.29)  13 OCT 2026 16:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.3.29)  13 OCT 2026 20:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -531,7 +531,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Overfull \vbox (2.14679pt too high) has occurred while \output is active []
 
 
-Overfull \vbox (6.69682pt too high) has occurred while \output is active []
+Overfull \vbox (2.74681pt too high) has occurred while \output is active []
 
 
 [25] (./main.aux)
@@ -543,9 +543,9 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14703 strings out of 474222
- 220609 string characters out of 5748733
- 3806975 words of memory out of 5000000
+ 14715 strings out of 474222
+ 220801 string characters out of 5748733
+ 3827975 words of memory out of 5000000
  34199 multiletter control sequences out of 15000+600000
  565076 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -557,8 +557,8 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
 Output written on main.pdf (25 pages, 218873 bytes).
 PDF statistics:
- 3284 PDF objects out of 3580 (max. 8388607)
- 3214 compressed objects within 33 object streams
- 2614 named destinations out of 2984 (max. 500000)
+ 3298 PDF objects out of 3580 (max. 8388607)
+ 3228 compressed objects within 33 object streams
+ 2626 named destinations out of 2984 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

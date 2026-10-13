@@ -267,7 +267,7 @@
 			"prefix":["hash", "stringHashing"],
 			"body":["vi P;",
 						  "",
-						  "//p = Size of alphabet",
+						  "//p = bigger than any char code used (131 is always safe), NOT the alphabet size",
 							"vi prepareP(int n, int p){",
 						  "\tP.assign(n, 0);",
 						  "\tP[0] = 1;",

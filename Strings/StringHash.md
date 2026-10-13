@@ -5,7 +5,7 @@ Para evitar, aumenta-se MOD, mas é preciso ter cuidado com overflow
 ```c++
 vi P;
 
-//p = Size of alphabet
+//p = bigger than any char code used (131 is always safe), NOT the alphabet size
 vi prepareP(int n, int p){
 		P.assign(n, 0);
 		P[0] = 1;

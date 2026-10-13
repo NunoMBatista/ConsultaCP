@@ -2235,53 +2235,6 @@ vvll matPow(vvll base, int p, int MOD){          //So matrizes quadradas
 
 
 \large
-\Large\textbf{Gaussian Elimination}
-\large
-\begin{lstlisting}
-#define MAX_N 100  //adjust this value as needed
-struct AugmentedMatrix{ double mat[MAX_N][MAX_N + 1];};
-struct ColumnVector{ double vec[MAX_N];};
-ColumnVector GaussianElimination(int N, AugmentedMatrix Aug){    //O(n^3)
-	//input: N, Augmented Matriz aug; output: Column Vector x, the answer
-	for (int i = 0; i < N-1; i++){							//forward elimination
-		int l = i;
-		for (int j = i + 1; j < N; j++){										row with max col value
-			if (fabs(Aug.mat[j][i]) > fabs(Aug.mat[l][i])) l = j;						remember this row l
-		}
-		//swap this pivot row, reason: minimize floating point error
-		for (int k = i; k <= N; k++){
-			swap(Aug.mat[i][k], Aug.mat[l][k]);
-		}
-		for (int j = i+1; j < N; j++){					//actual fwd elimination
-			for (int k = N; k >= i; k--){
-				Aug.mat[j][k] -= Aug.mat[i][k] * Aug.mat[j][i] / Aug.mat[i][i];
-			}
-		}
-	}
-	ColumnVector Ans;								//back substitution phase
-	for (int j = N-1; j >= 0; j--){					//start from back
-		double t = 0.0;
-		for (int k = j+1; k < N; k++){
-			t += Aug.mat[j][k] * Ans.vec[k];
-		}
-		Ans.vec[j] = (Aug.mat[j][N]-t) / Aug.mat[j][j];				//the answer is here
-	}
-	return Ans;
-}
-
-int main(){
-	AugmentedMatrix Aug;
-	Aug.mat[0][0] = 1; Aug.mat[0][1] = 1; Aug.mat[0][2] = 2; Aug.mat[0][3] = 9;	//x + y + 2z = 9
-	Aug.mat[1][0] = 2; Aug.mat[1][1] = 4; Aug.mat[1][2] = 3; Aug.mat[1][3] = 1;	//2x + 4y - 3z = 1
-	Aug.mat[2][0] = 3; Aug.mat[2][1] = 6; Aug.mat[2][2] = 5; Aug.mat[2][3] = 0;	//3x + 6y - 5z = 0
-	ColumnVector X = GaussianElimination(3, Aug);
-	cout<<"x = "<<X.vec[0]<<endl;
-	cout<<"y = "<<X.vec[1]<<endl;
-	cout<<"z = "<<X.vec[2]<<endl;
-}
-\end{lstlisting}
-
-\large
 \begin{center}
 \huge\textbf{--- Number Theory ---}
 \end{center}
@@ -2817,6 +2770,69 @@ void solve(){
 \end{lstlisting}
 
 \large
+\Large\textbf{String Hashing}
+\large
+\begin{lstlisting}
+// needs: ll MOD = 1e9+7;  inline ll mod(ll a, ll m) {return ((a%m) + m)%m;}
+// hash_fast(L, R, h): hash of T[L..R], R inclusive
+vi P;
+
+//p = bigger than any char code used (131 is always safe), NOT the alphabet size
+vi prepareP(int n, int p){
+		P.assign(n, 0);
+		P[0] = 1;
+		for (int i = 1; i < n; i++){
+				P[i] = ((ll)P[i-1]*p) % MOD;
+		}
+		return P;
+}
+
+vi computeRollingHash(string T, int p){
+		vi P = prepareP((int)T.length(), p);
+		vi h(T.size(), 0);
+		for (int i = 0; i < (int) T.length(); i++){
+				if (i != 0) h[i] = h[i-1];
+				h[i] = (h[i] + ((ll)T[i]*P[i]) % MOD) % MOD;
+		}
+		return h;
+}
+
+int extEuclidean(int a, int b, int &x, int &y){
+	int xx = y = 0;
+	int yy = x = 1;
+	while (b){
+		int q = a/b;
+		int t = b;
+		b = a%b;
+		a = t;
+		t = xx;
+		xx = x-q*xx;
+		x = t;
+		t = yy;
+		yy = y - q*yy;
+		y = t;
+	}
+	return a;
+}
+
+int modInverse(int A, int M){          //Para combinacoes/fatoriais, escrever comb ou fatoriais
+	int x, y;
+	int d = extEuclidean(A, M, x, y);
+	if (d != 1) return -1;
+	return mod(x, M);
+}
+
+
+int hash_fast(int L, int R, vi &h){
+		if (L == 0) return h[R];
+		int ans = 0;
+		ans = ((h[R] - h[L-1]) % MOD + MOD) % MOD;
+		ans = ((ll) ans * modInverse(P[L], MOD)) % MOD;
+		return ans;
+}
+\end{lstlisting}
+
+\large
 \Large\textbf{Longest Common Subsequence}
 \large
 \begin{lstlisting}
@@ -3029,14 +3045,12 @@ void undoMove(const string& symbol){
 	chosenSymbols.pop_back();
 	position -= symbol.size();
 }
-
 // What to do with each complete solution (the goal): here, print it.
 // To count instead: solutionCount++;   To find the best: compare and keep it.
 void handleSolution(){
 	for (const string& symbol : chosenSymbols) cout << symbol << " ";
 	cout << "\n";
 }
-
 // Try every move, go deeper, undo; reaches every complete solution once
 // int depth = 0;
 void backtrack(){
@@ -3049,11 +3063,9 @@ void backtrack(){
 		undoMove(move);     // depth--;
 	}
 }
-
 // COUNT VERSION: how many complete solutions can be reached from the current state.
 // Same helper functions as above. The memo makes it fast: each state is solved only once.
 map<int, long long> countMemo;          // state (here: position) -> number of solutions
-
 long long countSolutions(){
 	if (isCompleteSolution()) return 1;
 	if (countMemo.count(position)) return countMemo[position];   // state already solved
