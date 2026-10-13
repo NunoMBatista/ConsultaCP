@@ -490,5 +490,23 @@
 						"}"
 		],
 		"description":"Algoritmo que calcula a Minimum Spanning Tree. MST é a menor arvore de um grafo que conecta todos os seus vertices"
+	},
+	"Cycle Detection": {
+		"prefix": "CycleDetection",
+		"body":[
+			"// DIRECTED graph. state: 0 = never visited, 1 = on the current path, 2 = finished",
+			"// for (int u = 0; u < n; u++) if (state[u] == 0 && hasCycle(u, state, graph)) -> cycle",
+			"// UNDIRECTED graph: pass the parent, skip v == parent, and a visited v means a cycle",
+			"bool hasCycle(int u, vi &state, vv &graph){",
+			"\tstate[u] = 1;",
+			"\tfor (int v : graph[u]){",
+			"\t\tif (state[v] == 1) return true;",
+			"\t\tif (state[v] == 0 && hasCycle(v, state, graph)) return true;",
+			"\t}",
+			"\tstate[u] = 2;",
+			"\treturn false;",
+			"}"
+		],
+		"description":"DFS cycle detection for directed graphs (undirected variant in the comment)"
 	}
 }

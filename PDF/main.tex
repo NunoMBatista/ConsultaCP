@@ -1379,32 +1379,26 @@ bool bpm(int u, vector<bool>& visited) {
 	}
 	return false;
 }
-
 void solve(){
 	int n, m; 
 	cin >> n >> m; 
 	graph.resize(n+1);
-	
 	int col;
 	int add; 
 	for(int i = 1; i <= n; i++){
 		cin >> col; 
-		
 		for(int j = 0; j < col; j++){
 			cin >> add; 
 			graph[i].push_back(add);
 		}
 	}
-
 	match.assign(m + 1, -1);
-
 	int result = 0;
 	for(int u = 1; u <= n; u++) {
 		vector<bool> visited(m + 1, false);
 		if(bpm(u, visited))
 			result++;
 	}
-
 	cout << result << endl;
 }
 \end{lstlisting}
@@ -1417,7 +1411,6 @@ int n; // number of vertices
 vector<vector<int>> adj; // adjacency list of graph
 vector<bool> visited;
 vector<int> ans;
-
 void dfs(int v) {
 	visited[v] = true;
 	for (int u : adj[v]) {
@@ -1426,7 +1419,6 @@ void dfs(int v) {
 	}
 	ans.push_back(v);
 }
-
 void topological_sort() {
 	visited.assign(n, false);
 	ans.clear();
@@ -1436,6 +1428,24 @@ void topological_sort() {
 		}
 	}
 	reverse(ans.begin(), ans.end());
+}
+\end{lstlisting}
+
+\large
+\Large\textbf{Cycle Detection}
+\large
+\begin{lstlisting}
+// DIRECTED graph. state: 0 = never visited, 1 = on the current path, 2 = finished
+// for (int u = 0; u < n; u++) if (state[u] == 0 && hasCycle(u, state, graph)) -> cycle
+// UNDIRECTED graph: pass the parent, skip v == parent, and a visited v means a cycle
+bool hasCycle(int u, vi &state, vv &graph){
+	state[u] = 1;
+	for (int v : graph[u]){
+		if (state[v] == 1) return true;
+		if (state[v] == 0 && hasCycle(v, state, graph)) return true;
+	}
+	state[u] = 2;
+	return false;
 }
 \end{lstlisting}
 
@@ -1452,13 +1462,11 @@ ll counter;
 stack<ll> S;
 vector<bool> onStack;
 ll id;
-
 void dfs(ll cur){
 	S.push(cur);
 	onStack[cur] = true;
 	ids[cur] = low[cur] = id;
 	id++;
-
 	for(auto adj: graph[cur]){
 		if(ids[adj] == -1){
 			dfs(adj);
@@ -1468,7 +1476,6 @@ void dfs(ll cur){
 			low[cur] = min(low[cur], low[adj]);
 		}
 	}
-
 	// SCC root found
 	ll top = -1;
 	if(ids[cur] == low[cur]){
@@ -1483,7 +1490,6 @@ void dfs(ll cur){
 		counter++;
 	}
 }
-
 void tarjan(){
 	id = 1;
 	counter = 0;
