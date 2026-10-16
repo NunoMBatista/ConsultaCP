@@ -95,7 +95,7 @@
 						"\tT[0][i] = 1;",
 						"\t}",
 						"\tfor (int i = 1; i < n; i++){",
-						"\t\tfor (int j = 1; j < n; j++){",
+						"\t\tfor (int j = 1; j < m; j++){",
 						"\t\t\tT[i][j] = mod(mod(T[i-1][j], p) + mod(T[i][j-1], p), p);",
 						"\t\t}",
 						"\t}",
